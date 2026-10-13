@@ -15,7 +15,7 @@ Formate heißen `tinh-<zweck>-<grundformat>`.
 | `tinh-slides` | `tinh-slides-revealjs` | revealjs | Folien-Stil, Titelfolie mit Logo aus der Brand          |
 | `tinh-slides` | `tinh-slides-typst`    | typst    | Folien als PDF mit touying, Theme `clean`, Titelfolie mit Logo aus der Brand |
 | `tinh-slides` | `tinh-slides-html`     | html     | Stil für HTML-Seiten                                    |
-| `tinh-notes`  | `tinh-notes-html`      | html     | Skript: Inhaltsverzeichnis, Logo aus der Brand über `toc-title` |
+| `tinh-notes`  | `tinh-notes-html`      | html     | Skript: Inhaltsverzeichnis, Logo aus der Brand über `toc-title` (bei Büchern und Websites stattdessen in der Seitenleiste) |
 | `tinh-notes`  | `tinh-notes-pdf`       | pdf      | Skript als PDF (LaTeX) mit Index                        |
 | `tinh-assignments` | `tinh-assignments-html` | html | Aufgabenblätter                                      |
 | `tinh-assignments` | `tinh-assignments-pdf`  | pdf  | Aufgabenblätter als PDF (LaTeX)                      |
