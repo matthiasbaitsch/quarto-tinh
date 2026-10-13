@@ -12,10 +12,31 @@ Formate heißen `tinh-<zweck>-<grundformat>`.
 
 | Extension     | Format                 | Basis    | Inhalt                                                  |
 |---------------|------------------------|----------|---------------------------------------------------------|
-| `tinh-folien` | `tinh-folien-revealjs` | revealjs | Folien-Stil, Titelfolie mit Logo aus der Brand          |
-| `tinh-folien` | `tinh-folien-html`     | html     | Stil für HTML-Seiten                                    |
+| `tinh-slides` | `tinh-slides-revealjs` | revealjs | Folien-Stil, Titelfolie mit Logo aus der Brand          |
+| `tinh-slides` | `tinh-slides-typst`    | typst    | Folien als PDF mit touying, Theme `clean`, Titelfolie mit Logo aus der Brand |
+| `tinh-slides` | `tinh-slides-html`     | html     | Stil für HTML-Seiten                                    |
 
-Geplant: `tinh-folien-typst` (Folien als PDF mit touying), `tinh-skript-*`, `tinh-aufgaben-*`.
+Geplant: `tinh-notes-*` (Skript), `tinh-assignments-*` (Aufgabenblätter).
+
+## Befehle
+
+Klassen, die in allen Formaten gleich verwendet werden (bisher nur in `tinh-slides-typst` umgesetzt):
+
+| Klasse                       | Wirkung                                  |
+|------------------------------|------------------------------------------|
+| `[Begriff]{.neuerbegriff}`   | neuer Begriff, dunkelrot und fett        |
+| `[]{.ja}`, `[]{.nein}`       | grüner Haken, rotes Kreuz                |
+| `[]{.down20}` usw.           | vertikaler Abstand (10, 20, 30, 40, 50)  |
+
+## Typst-Folien
+
+`tinh-slides-typst` baut auf der touying-Bridge
+[kazuyanagimoto/quarto-touying-typst](https://github.com/kazuyanagimoto/quarto-touying-typst) (MIT, siehe
+`LICENSE-touying`) und dem Typst-Paket `touying-quarto-clean` auf. Übernommen und angepasst:
+`touying.lua`, `environment.lua` (um die Befehle oben ergänzt), `shortcodes.lua`, `typst-template.typ`,
+`typst-show.typ` (um das Logo ergänzt). Theme, Befehle und Titelfolie stehen in `tinh-slides.typ`. `page.typ`
+ist Quartos Fassung ohne das Logo auf jeder Seite. Pausen mit `. . .`, Optionen `aspect-ratio` und `handout`
+wie bei der Bridge.
 
 ## Einbinden
 
@@ -27,7 +48,7 @@ Danach in `_quarto.yml` oder im Dokument:
 
 ```yaml
 format:
-  tinh-folien-revealjs: default
+  tinh-slides-revealjs: default
 ```
 
 Lokale Optionen in `_quarto.yml` überschreiben die der Extension. Den Ordner `_extensions/` im Projekt
@@ -43,9 +64,11 @@ logo:
   medium: logo.svg
 ```
 
-Der Filter `logo.lua` bettet das SVG als Daten-URI ein, damit es ohne Pfade funktioniert (Dokumente in
-Unterordnern, `output-dir`, Zips). Ohne Brand gibt es kein Logo. Quartos eigenes Logo unten rechts auf jeder
-Folie ist abgeschaltet (`logo: false`), es verweist bei `output-dir` absolut auf `/_brand/…` und ist dann kaputt.
+Bei revealjs bettet der Filter `logo.lua` das SVG als Daten-URI ein, damit es ohne Pfade funktioniert
+(Dokumente in Unterordnern, `output-dir`, Zips). Quartos eigenes Logo unten rechts auf jeder Folie ist
+abgeschaltet (`logo: false`), es verweist bei `output-dir` absolut auf `/_brand/…` und ist dann kaputt. Bei
+Typst gibt `logo.lua` den Pfad relativ zum Dokument an die Titelfolie weiter, Quartos Logo auf jeder Seite
+entfällt (eigene `page.typ`). Ohne Brand gibt es kein Logo.
 
 ## Aktualisieren
 

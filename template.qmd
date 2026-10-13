@@ -1,8 +1,8 @@
 ---
 title: Beispielfolien
-subtitle: Test der Extension tinh-folien
+subtitle: Test der Extension tinh-slides
 author: Matthias Baitsch
-format: tinh-folien-revealjs
+format: tinh-slides-revealjs
 ---
 
 # Abschnitt
