@@ -83,7 +83,7 @@ $endif$
   $if(date)$ date: [$date$], $endif$
   $if(institute)$ institution: [$institute$], $endif$
   // tinh: Logo der Brand (logo.medium), gesetzt von logo.lua
-  $if(tinh-logo)$ logo: image("$tinh-logo$", height: 3em), $endif$
+  $if(tinh-logo)$ logo: image("$tinh-logo$", height: 1.5em), $endif$
 )
 
 // Title slide ----------------------------------------------------------------

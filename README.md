@@ -64,7 +64,9 @@ logo:
   medium: logo.svg
 ```
 
-Bei revealjs bettet der Filter `logo.lua` das SVG als Daten-URI ein, damit es ohne Pfade funktioniert
+Statt einer Datei kann `logo.medium` auch eine URL sein, die bei revealjs direkt verwendet wird (Typst kann keine
+Bilder aus dem Netz laden, dort gibt es dann kein Logo). Eine lokale Datei bettet der Filter `logo.lua` bei revealjs
+als Daten-URI ein, damit es ohne Pfade funktioniert
 (Dokumente in Unterordnern, `output-dir`, Zips). Quartos eigenes Logo unten rechts auf jeder Folie ist
 abgeschaltet (`logo: false`), es verweist bei `output-dir` absolut auf `/_brand/…` und ist dann kaputt. Bei
 Typst gibt `logo.lua` den Pfad relativ zum Dokument an die Titelfolie weiter, Quartos Logo auf jeder Seite

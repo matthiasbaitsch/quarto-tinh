@@ -1,7 +1,8 @@
 -- Logo der Brand (logo.medium) auf der Titelfolie.
--- revealjs: Bild vor dem Titel (siehe titlepage.scss), das SVG wird als Daten-URI eingebettet, damit es ohne Pfade
--- und Kopieren funktioniert (Unterordner, output-dir, Zips).
--- typst: Pfad relativ zum Dokument in der Variable tinh-logo (siehe typst-show.typ und tinh-slides.typ).
+-- revealjs: Bild vor dem Titel (siehe titlepage.scss). Eine URL wird direkt verwendet, eine lokale SVG-Datei als
+-- Daten-URI eingebettet, damit es ohne Pfade und Kopieren funktioniert (Unterordner, output-dir, Zips).
+-- typst: Pfad relativ zum Dokument in der Variable tinh-logo (siehe typst-show.typ und tinh-slides.typ), nur lokale
+-- Dateien (Typst lädt keine Bilder aus dem Netz).
 local function svg_data_uri(file)
   local f = io.open(file, "r")
   if f == nil then
@@ -20,13 +21,18 @@ function Meta(meta)
   if logo == nil or logo.path == nil then
     return meta
   end
+  local is_url = logo.path:match("^https?://") ~= nil
+  if is_url and quarto.doc.is_format("typst") then
+    quarto.log.warning("tinh-slides: Typst kann das Logo nicht aus dem Netz laden: " .. logo.path)
+    return meta
+  end
   local file = pandoc.path.join({ quarto.project.directory or ".", logo.path })
   if quarto.doc.is_format("typst") then
     local dir = pandoc.path.directory(quarto.doc.input_file)
     meta["tinh-logo"] = pandoc.RawInline("typst", pandoc.path.make_relative(file, dir, true))
     return meta
   end
-  local uri = svg_data_uri(file)
+  local uri = is_url and logo.path or svg_data_uri(file)
   if uri == nil then
     quarto.log.warning("tinh-slides: Logo nicht gefunden: " .. logo.path)
     return meta
