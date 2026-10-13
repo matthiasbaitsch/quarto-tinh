@@ -15,18 +15,26 @@ Formate heißen `tinh-<zweck>-<grundformat>`.
 | `tinh-slides` | `tinh-slides-revealjs` | revealjs | Folien-Stil, Titelfolie mit Logo aus der Brand          |
 | `tinh-slides` | `tinh-slides-typst`    | typst    | Folien als PDF mit touying, Theme `clean`, Titelfolie mit Logo aus der Brand |
 | `tinh-slides` | `tinh-slides-html`     | html     | Stil für HTML-Seiten                                    |
+| `tinh-notes`  | `tinh-notes-html`      | html     | Skript: Inhaltsverzeichnis, Logo aus der Brand über `toc-title` |
+| `tinh-notes`  | `tinh-notes-pdf`       | pdf      | Skript als PDF (LaTeX) mit Index                        |
+| `tinh-assignments` | `tinh-assignments-html` | html | Aufgabenblätter                                      |
+| `tinh-assignments` | `tinh-assignments-pdf`  | pdf  | Aufgabenblätter als PDF (LaTeX)                      |
 
-Geplant: `tinh-notes-*` (Skript), `tinh-assignments-*` (Aufgabenblätter).
+`tinh-notes` und `tinh-assignments` enthalten jeweils dieselben Dateien `*.css` und `*.tex` (bisher
+`bcd-style-notes.css` und `_bcd-setup.tex` in `bcd-bausteine-statistik`) und den Filter `latex-environment.lua` aus
+[quarto-ext/latex-environment](https://github.com/quarto-ext/latex-environment) (MIT, siehe
+`LICENSE-latex-environment`). Für PDF sind die Befehle `neuerbegriff`, `ja`, `nein` und die Umgebung `beispiel`
+voreingestellt (`commands`, `environments`). Geplant: Typst-Formate für Skript und Aufgabenblätter.
 
 ## Befehle
 
-Klassen, die in allen Formaten von `tinh-slides` gleich verwendet werden:
+Klassen, die in allen Formaten gleich verwendet werden:
 
 | Klasse                       | Wirkung                                  |
 |------------------------------|------------------------------------------|
 | `[Begriff]{.neuerbegriff}`   | neuer Begriff, dunkelrot (`accent2`)     |
 | `[]{.ja}`, `[]{.nein}`       | grüner Haken, rotes Kreuz                |
-| `[]{.down20}` usw.           | vertikaler Abstand (Typst: 10 bis 50, revealjs: auch `.upN` und weitere Werte) |
+| `[]{.down20}` usw.           | vertikaler Abstand, nur Folien (Typst: 10 bis 50, revealjs: auch `.upN` und weitere Werte) |
 
 ## Typst-Folien
 
