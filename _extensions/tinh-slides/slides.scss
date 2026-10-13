@@ -390,6 +390,17 @@ $selection-bg: #26351c !default;
   color: $accent2;
 }
 
+// Haken und Kreuz, z. B. in Tabellen: []{.ja}, []{.nein}
+.ja::before {
+  content: "✓";
+  color: #2e7d32;
+}
+
+.nein::before {
+  content: "✗";
+  color: red;
+}
+
 .fg {
   color: var(--col, $jet);
 }

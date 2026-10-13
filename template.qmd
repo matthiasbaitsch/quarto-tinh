@@ -93,3 +93,10 @@ Lernziel in einem Kasten
 $$
 M_{max} = \frac{q \ell^2}{8}
 $$
+
+## Haken und Kreuz
+
+| Skala | ordnen | Quotienten |
+|---|:-:|:-:|
+| nominal | []{.nein} | []{.nein} |
+| Verhältnis | []{.ja} | []{.ja} |

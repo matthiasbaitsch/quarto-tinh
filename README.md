@@ -20,13 +20,13 @@ Geplant: `tinh-notes-*` (Skript), `tinh-assignments-*` (Aufgabenblätter).
 
 ## Befehle
 
-Klassen, die in allen Formaten gleich verwendet werden (bisher nur in `tinh-slides-typst` umgesetzt):
+Klassen, die in allen Formaten von `tinh-slides` gleich verwendet werden:
 
 | Klasse                       | Wirkung                                  |
 |------------------------------|------------------------------------------|
-| `[Begriff]{.neuerbegriff}`   | neuer Begriff, dunkelrot und fett        |
+| `[Begriff]{.neuerbegriff}`   | neuer Begriff, dunkelrot (`accent2`)     |
 | `[]{.ja}`, `[]{.nein}`       | grüner Haken, rotes Kreuz                |
-| `[]{.down20}` usw.           | vertikaler Abstand (10, 20, 30, 40, 50)  |
+| `[]{.down20}` usw.           | vertikaler Abstand (Typst: 10 bis 50, revealjs: auch `.upN` und weitere Werte) |
 
 ## Typst-Folien
 

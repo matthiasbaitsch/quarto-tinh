@@ -2,6 +2,23 @@
 
 /*-- scss:rules --*/
 
+// Hervorhebungen wie bei den Folien
+.neuerbegriff {
+    color: #9a2515;
+    font-weight: 600;
+}
+
+// Haken und Kreuz, z. B. in Tabellen: []{.ja}, []{.nein}
+.ja::before {
+    content: "✓";
+    color: #2e7d32;
+}
+
+.nein::before {
+    content: "✗";
+    color: red;
+}
+
 h3 {
     font-size: 1rem;
     font-weight: 600;

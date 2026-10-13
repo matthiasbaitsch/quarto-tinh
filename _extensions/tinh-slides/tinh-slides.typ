@@ -3,7 +3,7 @@
 #import "@preview/touying-quarto-clean:0.2.1": *
 
 // Befehle (Klassen per environment.lua, z. B. [Begriff]{.neuerbegriff})
-#let neuerbegriff(body) = text(fill: rgb(177, 52, 52), weight: "bold", body)
+#let neuerbegriff(body) = text(fill: rgb("#9a2515"), weight: "regular", body)
 #let ja(body) = text(fill: rgb("#2e7d32"))[✓]
 #let nein(body) = text(fill: red)[✗]
 
