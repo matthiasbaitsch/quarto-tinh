@@ -1,0 +1,20 @@
+---
+title: Beispielseite
+subtitle: Test der Extension tinh-folien
+author: Matthias Baitsch
+format: tinh-folien-html
+---
+
+## Abschnitt
+
+Ein Absatz mit Text.
+
+### Unterabschnitt
+
+```csharp
+Console.WriteLine("Hallo");
+```
+
+```
+Ausgabe ohne Syntaxhervorhebung
+```

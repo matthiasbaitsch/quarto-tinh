@@ -1,0 +1,95 @@
+---
+title: Beispielfolien
+subtitle: Test der Extension tinh-folien
+author: Matthias Baitsch
+format: tinh-folien-revealjs
+---
+
+# Abschnitt
+
+## Text und Listen
+
+Ein Absatz mit einem [neuen Begriff]{.neuerbegriff} und einem [Hinweis]{.alert}.
+
+- Erster Punkt
+- Zweiter Punkt
+  - Unterpunkt
+
+Absatz direkt nach einer Liste.
+
+### Überschrift nach Text
+
+1. Nummeriert
+2. Liste
+
+## Code
+
+```{.csharp filename="Program.cs"}
+Console.WriteLine("Hallo");
+```
+
+### Überschrift nach Code
+
+```csharp
+int x = 4711;
+```
+
+```{.output}
+4711
+```
+
+## Rohdaten und Rahmen
+
+```{.raw}
+Station;Jahr;Niederschlag
+Bochum;2024;1012.3
+```
+
+[]{.down90}
+
+[Text mit Rahmen]{.framed}
+
+## Spalten
+
+::: {.columns}
+::: {.column width="50%"}
+### Links
+
+```csharp
+double a = 1.5;
+```
+:::
+::: {.column width="5%"}
+:::
+::: {.column width="45%"}
+### Rechts
+
+Text in der rechten Spalte.
+:::
+:::
+
+## Fragments
+
+::: {.r-stack}
+::: {.fragment .fade-out fragment-index=1}
+Inhalt A, beim Öffnen sichtbar
+:::
+::: {.fragment .fade-in fragment-index=1}
+Inhalt B, ersetzt A nach einem Klick
+:::
+:::
+
+## Kasten, Tabelle und Formel
+
+::: {.objective}
+Lernziel in einem Kasten
+:::
+
+| Größe | Wert |
+|---|---|
+| Länge | 5.0 m |
+| Last | 10.0 kN/m |
+
+$$
+M_{max} = \frac{q \ell^2}{8}
+$$
