@@ -1,5 +1,6 @@
 -- Logo der Brand (logo.medium) über dem Titel des Inhaltsverzeichnisses (toc-title), nur HTML und nur, wenn das
--- Dokument einen toc-title hat. Eine URL wird direkt verwendet, eine lokale Datei als Daten-URI eingebettet.
+-- Dokument einen toc-title hat und kein Buch bzw. keine Website ist (dort steht das Logo in der Seitenleiste).
+-- Eine URL wird direkt verwendet, eine lokale Datei als Daten-URI eingebettet.
 local mime_types = { svg = "image/svg+xml", png = "image/png", jpg = "image/jpeg", jpeg = "image/jpeg" }
 
 local function base64(data)
@@ -40,6 +41,10 @@ end
 
 function Meta(meta)
   if not quarto.doc.is_format("html") or meta["toc-title"] == nil then
+    return meta
+  end
+  -- Bücher und Websites zeigen das Logo der Brand schon in der Seitenleiste
+  if meta["book"] ~= nil or meta["website"] ~= nil then
     return meta
   end
   local logo = quarto.brand.get_logo("light", "medium")
