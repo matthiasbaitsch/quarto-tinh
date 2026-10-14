@@ -13,7 +13,6 @@ Formate heißen `tinh-<zweck>-<grundformat>`.
 |---------------|------------------------|----------|---------------------------------------------------------|
 | `tinh-slides` | `tinh-slides-revealjs` | revealjs | Folien-Stil, Titelfolie mit Logo aus der Brand          |
 | `tinh-slides` | `tinh-slides-typst`    | typst    | Folien als PDF mit touying, Theme `clean`, Titelfolie mit Logo aus der Brand |
-| `tinh-slides` | `tinh-slides-html`     | html     | Stil für HTML-Seiten                                    |
 | `tinh-notes`  | `tinh-notes-html`      | html     | Skript: Inhaltsverzeichnis, Logo aus der Brand über `toc-title` (bei Büchern und Websites stattdessen in der Seitenleiste) |
 | `tinh-notes`  | `tinh-notes-pdf`       | pdf      | Skript als PDF (LaTeX) mit Index                        |
 | `tinh-assignments` | `tinh-assignments-html` | html | Aufgabenblätter                                      |
@@ -77,7 +76,7 @@ quarto update matthiasbaitsch/quarto-tinh
 
 ## Testen
 
-In `examples/` gibt es für jeden Zweck eine Datei mit den Elementen, die die Extension besonders behandelt, jeweils in allen Formaten des Zwecks: `slides.qmd` (revealjs, typst), `page.qmd` (`tinh-slides-html`), `notes.qmd`, `assignments.qmd`. Die `_quarto.yml` im Wurzelverzeichnis macht das Repository zum Projekt, damit Quarto die Extensions aus `_extensions/` findet, rendert nur diese Beispiele und schreibt die Ausgabe nach `_output/`.
+In `examples/` gibt es für jeden Zweck eine Datei mit den Elementen, die die Extension besonders behandelt, jeweils in allen Formaten des Zwecks: `slides.qmd`, `notes.qmd`, `assignments.qmd`. Die `_quarto.yml` im Wurzelverzeichnis macht das Repository zum Projekt, damit Quarto die Extensions aus `_extensions/` findet, rendert nur diese Beispiele und schreibt die Ausgabe nach `_output/`.
 
 ```bash
 quarto render                        # alle Beispiele
