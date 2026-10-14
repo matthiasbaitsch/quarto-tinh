@@ -16,9 +16,9 @@ Formate heißen `tinh-<zweck>-<grundformat>`.
 | `tinh-notes`  | `tinh-notes-html`      | html     | Skript: Inhaltsverzeichnis, Logo aus der Brand über `toc-title` (bei Büchern und Websites stattdessen in der Seitenleiste) |
 | `tinh-notes`  | `tinh-notes-pdf`       | pdf      | Skript als PDF (LaTeX) mit Index                        |
 | `tinh-assignments` | `tinh-assignments-html` | html | Aufgabenblätter                                      |
-| `tinh-assignments` | `tinh-assignments-pdf`  | pdf  | Aufgabenblätter als PDF (LaTeX)                      |
+| `tinh-assignments` | `tinh-assignments-typst` | typst | Aufgabenblätter als PDF (Typst), Schrift Liberation Sans |
 
-`tinh-notes` und `tinh-assignments` enthalten jeweils dieselben Dateien `*.css` und `*.tex` und den Filter `latex-environment.lua` aus [quarto-ext/latex-environment](https://github.com/quarto-ext/latex-environment) (MIT, siehe `LICENSE-latex-environment`). Für PDF sind die Befehle `neuerbegriff`, `ja`, `nein` und die Umgebung `beispiel` voreingestellt (`commands`, `environments`). Geplant: Typst-Formate für Skript und Aufgabenblätter.
+`tinh-notes` enthält den Filter `latex-environment.lua` aus [quarto-ext/latex-environment](https://github.com/quarto-ext/latex-environment) (MIT, siehe `LICENSE-latex-environment`). Für PDF sind die Befehle `neuerbegriff`, `ja`, `nein` und die Umgebung `beispiel` voreingestellt (`commands`, `environments`). Geplant: Typst-Format für das Skript.
 
 ## Befehle
 
