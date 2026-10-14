@@ -1,0 +1,63 @@
+---
+title: Beispielskript
+subtitle: Test der Extension tinh-notes
+author: Matthias Baitsch
+format:
+  tinh-notes-html: default
+  tinh-notes-pdf: default
+---
+
+## Begriffe
+
+Ein [Merkmal]{.neuerbegriff} ist eine Eigenschaft, die an jeder
+[Beobachtungseinheit]{.neuerbegriff} erhoben wird. Beide Begriffe stehen im PDF
+im Index.
+
+::: {.definition}
+**Definition.** Eine Definition in einem Kasten.
+
+Mit einem zweiten Absatz.
+:::
+
+::: {.beispiel}
+Ein Beispiel mit Balken am linken Rand.
+
+  | Station | Jahr | Niederschlag |
+  | ------- | ---- | -----------: |
+  | Bochum  | 2024 |       1012.3 |
+:::
+
+### Skalen
+
+  | Skala      | ordnen    | Quotienten |
+  | ---------- | :-------: | :--------: |
+  | nominal    | []{.nein} | []{.nein}  |
+  | ordinal    |  []{.ja}  | []{.nein}  |
+  | Verhältnis |  []{.ja}  |  []{.ja}   |
+
+### Liste mit Beschreibungen
+
+Nominal
+:   Nur Gleichheit ist sinnvoll.
+
+Ordinal
+:   Werte lassen sich ordnen.
+
+## Formeln und Code
+
+Der Mittelwert ist
+
+$$
+  \bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i .
+$$
+
+### In Python
+
+```python
+x = [1.0, 2.0, 4.0]
+print(sum(x) / len(x))
+```
+
+#### Überschrift auf Ebene 4
+
+Erscheint im HTML-Inhaltsverzeichnis (`toc-depth: 4`).

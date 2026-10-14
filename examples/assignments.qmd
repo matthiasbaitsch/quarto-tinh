@@ -1,0 +1,39 @@
+---
+title: Beispielaufgaben
+subtitle: Test der Extension tinh-assignments
+author: Matthias Baitsch
+format:
+  tinh-assignments-html: default
+  tinh-assignments-pdf: default
+---
+
+## Aufgabe 1
+
+Bestimmen Sie für die folgenden Daten den [Mittelwert]{.neuerbegriff}.
+
+| Station | Jahr | Niederschlag |
+|---------|------|-------------:|
+| Bochum  | 2024 |       1012.3 |
+| Essen   | 2024 |        934.8 |
+
+::: {.beispiel}
+Hinweis: Der Mittelwert ist $\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$.
+:::
+
+## Aufgabe 2
+
+Kreuzen Sie an, welche Aussagen richtig sind.
+
+| Aussage                                  | richtig   |
+|------------------------------------------|:---------:|
+| Der Median ist robust gegen Ausreißer.   | []{.ja}   |
+| Die Varianz kann negativ sein.           | []{.nein} |
+
+## Aufgabe 3
+
+a) Erster Teil
+b) Zweiter Teil
+
+::: {.definition}
+Eine Definition als Erinnerung.
+:::

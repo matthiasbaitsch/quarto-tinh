@@ -3,8 +3,7 @@
 Neutrale Quarto-Extensions für Lehrunterlagen (Folien, Skript, Aufgaben). Der Name kommt vom vietnamesischen
 *tính* (rechnen).
 
-Die Extensions enthalten nur Layout und Stil. Was eine Einrichtung ausmacht (Logo, später ggf. Farben), kommt aus
-der `_brand.yml` des jeweiligen Projekts, Autor, Untertitel, Fußzeile usw. aus den Metadaten des Projekts.
+Die Extensions enthalten nur Layout und Stil. Was eine Einrichtung ausmacht (Logo, später ggf. Farben), kommt aus der `_brand.yml` des jeweiligen Projekts, Autor, Untertitel, Fußzeile usw. aus den Metadaten des Projekts.
 
 ## Formate
 
@@ -20,11 +19,7 @@ Formate heißen `tinh-<zweck>-<grundformat>`.
 | `tinh-assignments` | `tinh-assignments-html` | html | Aufgabenblätter                                      |
 | `tinh-assignments` | `tinh-assignments-pdf`  | pdf  | Aufgabenblätter als PDF (LaTeX)                      |
 
-`tinh-notes` und `tinh-assignments` enthalten jeweils dieselben Dateien `*.css` und `*.tex` (bisher
-`bcd-style-notes.css` und `_bcd-setup.tex` in `bcd-bausteine-statistik`) und den Filter `latex-environment.lua` aus
-[quarto-ext/latex-environment](https://github.com/quarto-ext/latex-environment) (MIT, siehe
-`LICENSE-latex-environment`). Für PDF sind die Befehle `neuerbegriff`, `ja`, `nein` und die Umgebung `beispiel`
-voreingestellt (`commands`, `environments`). Geplant: Typst-Formate für Skript und Aufgabenblätter.
+`tinh-notes` und `tinh-assignments` enthalten jeweils dieselben Dateien `*.css` und `*.tex` und den Filter `latex-environment.lua` aus [quarto-ext/latex-environment](https://github.com/quarto-ext/latex-environment) (MIT, siehe `LICENSE-latex-environment`). Für PDF sind die Befehle `neuerbegriff`, `ja`, `nein` und die Umgebung `beispiel` voreingestellt (`commands`, `environments`). Geplant: Typst-Formate für Skript und Aufgabenblätter.
 
 ## Befehle
 
@@ -72,13 +67,7 @@ logo:
   medium: logo.svg
 ```
 
-Statt einer Datei kann `logo.medium` auch eine URL sein, die bei revealjs direkt verwendet wird (Typst kann keine
-Bilder aus dem Netz laden, dort gibt es dann kein Logo). Eine lokale Datei bettet der Filter `logo.lua` bei revealjs
-als Daten-URI ein, damit es ohne Pfade funktioniert
-(Dokumente in Unterordnern, `output-dir`, Zips). Quartos eigenes Logo unten rechts auf jeder Folie ist
-abgeschaltet (`logo: false`), es verweist bei `output-dir` absolut auf `/_brand/…` und ist dann kaputt. Bei
-Typst gibt `logo.lua` den Pfad relativ zum Dokument an die Titelfolie weiter, Quartos Logo auf jeder Seite
-entfällt (eigene `page.typ`). Ohne Brand gibt es kein Logo.
+Statt einer Datei kann `logo.medium` auch eine URL sein, die bei revealjs direkt verwendet wird (Typst kann keine Bilder aus dem Netz laden, dort gibt es dann kein Logo). Eine lokale Datei bettet der Filter `logo.lua` bei revealjs als Daten-URI ein, damit es ohne Pfade funktioniert (Dokumente in Unterordnern, `output-dir`, Zips). Quartos eigenes Logo unten rechts auf jeder Folie ist abgeschaltet (`logo: false`), es verweist bei `output-dir` absolut auf `/_brand/…` und ist dann kaputt. Bei Typst gibt `logo.lua` den Pfad relativ zum Dokument an die Titelfolie weiter, Quartos Logo auf jeder Seite entfällt (eigene `page.typ`). Ohne Brand gibt es kein Logo.
 
 ## Aktualisieren
 
@@ -88,16 +77,14 @@ quarto update matthiasbaitsch/quarto-tinh
 
 ## Testen
 
-`template.qmd` (Folien) und `template-html.qmd` (HTML) enthalten die Elemente, die das Stylesheet besonders
-behandelt.
+In `examples/` gibt es für jeden Zweck eine Datei mit den Elementen, die die Extension besonders behandelt, jeweils in allen Formaten des Zwecks: `slides.qmd` (revealjs, typst), `page.qmd` (`tinh-slides-html`), `notes.qmd`, `assignments.qmd`. Die `_quarto.yml` im Wurzelverzeichnis macht das Repository zum Projekt, damit Quarto die Extensions aus `_extensions/` findet, rendert nur diese Beispiele und schreibt die Ausgabe nach `_output/`.
 
 ```bash
-quarto render template.qmd
-quarto render template-html.qmd
+quarto render                        # alle Beispiele
+quarto render examples/notes.qmd     # ein Beispiel
 ```
 
 ## Bekannte Meldungen
 
 - `Cannot read properties of undefined (reading 'Config')` in der Browser-Konsole und beim PDF-Export mit
-  Decktape: Das Reveal-Mathe-Plugin ruft nach dem Laden `MathJax.Hub.Config` (MathJax-2-API) auf, MathJax 4 kennt
-  das nicht. Harmlos, die Formeln setzt MathJax 4 trotzdem.
+  Decktape: Das Reveal-Mathe-Plugin ruft nach dem Laden `MathJax.Hub.Config` (MathJax-2-API) auf, MathJax 4 kennt das nicht. Harmlos, die Formeln setzt MathJax 4 trotzdem.
