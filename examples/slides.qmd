@@ -9,6 +9,13 @@ format:
 
 # Abschnitt
 
+## Tabelle
+
+```{r}
+library(gt)
+penguins |> gt() |> opt_interactive()
+```
+
 ## Text und Listen
 
 Ein Absatz mit einem [neuen Begriff]{.neuerbegriff} und einem [Hinweis]{.alert}.
