@@ -2,3 +2,6 @@ project:
   output-dir: _output
   render:
     - examples/*.qmd
+
+csl: style.csl
+bibliography: bibliographie.bib

@@ -1,13 +1,13 @@
 ---
 title: Beispielaufgaben
 subtitle: Test der Extension tinh-assignments
-author: Matthias Baitsch
 format:
   tinh-assignments-html: default
   tinh-assignments-typst: default
 ---
 
-## Aufgabe 1
+::: {#exr-a1}
+## Verwenden
 
 Bestimmen Sie für die folgenden Daten den [Mittelwert]{.neuerbegriff}.
 
@@ -19,8 +19,10 @@ Bestimmen Sie für die folgenden Daten den [Mittelwert]{.neuerbegriff}.
 ::: {.beispiel}
 Hinweis: Der Mittelwert ist $\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$.
 :::
+:::
 
-## Aufgabe 2
+::: {#exr-a2}
+## Nachrechnen
 
 Kreuzen Sie an, welche Aussagen richtig sind.
 
@@ -28,12 +30,15 @@ Kreuzen Sie an, welche Aussagen richtig sind.
 |------------------------------------------|:---------:|
 | Der Median ist robust gegen Ausreißer.   | []{.ja}   |
 | Die Varianz kann negativ sein.           | []{.nein} |
+:::
 
-## Aufgabe 3
+::: {#exr-a3}
+## Denk dir was aus
 
 a) Erster Teil
 b) Zweiter Teil
 
 ::: {.definition}
 Eine Definition als Erinnerung.
+:::
 :::
