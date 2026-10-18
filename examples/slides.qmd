@@ -13,7 +13,11 @@ format:
 
 ```{r}
 library(gt)
-penguins |> gt() |> opt_interactive()
+if (knitr::is_html_output()) {
+  penguins |> gt() |> opt_interactive(use_pagination = TRUE)
+} else {
+  penguins |> head(10) |> gt()
+}
 ```
 
 ## Text und Listen

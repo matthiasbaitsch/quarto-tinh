@@ -6,6 +6,8 @@ format:
   tinh-assignments-typst: default
 ---
 
+# Grundlagen
+
 ::: {#exr-a1}
 ## Verwenden
 
