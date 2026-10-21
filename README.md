@@ -5,6 +5,17 @@ Neutrale Quarto-Extensions für Lehrunterlagen (Folien, Skript, Aufgaben). Der N
 
 Die Extensions enthalten nur Layout und Stil. Was eine Einrichtung ausmacht (Logo, später ggf. Farben), kommt aus der `_brand.yml` des jeweiligen Projekts, Autor, Untertitel, Fußzeile usw. aus den Metadaten des Projekts.
 
+## Beispiele
+
+Die Beispiele aus `examples/` werden bei jedem Push auf `main` gerendert und auf GitHub Pages veröffentlicht:
+
+| Beispiel                              | HTML | PDF |
+|---------------------------------------|------|-----|
+| Folien (`slides.qmd`)                 | [revealjs](https://matthiasbaitsch.github.io/quarto-tinh/examples/slides.html) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/slides.pdf) |
+| Skript (`notes.qmd`)                  | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/notes.html) | [LaTeX](https://matthiasbaitsch.github.io/quarto-tinh/examples/notes.pdf) |
+| Aufgaben (`assignments.qmd`)          | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/assignments.html) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/assignments.pdf) |
+| Aufgaben mit Literatur (`assignments-mit-bibliographie.qmd`) | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/assignments-mit-bibliographie.html) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/assignments-mit-bibliographie.pdf) |
+
 ## Formate
 
 Formate heißen `tinh-<zweck>-<grundformat>`.
@@ -76,7 +87,7 @@ quarto update matthiasbaitsch/quarto-tinh
 
 ## Testen
 
-In `examples/` gibt es für jeden Zweck eine Datei mit den Elementen, die die Extension besonders behandelt, jeweils in allen Formaten des Zwecks: `slides.qmd`, `notes.qmd`, `assignments.qmd`. Die `_quarto.yml` im Wurzelverzeichnis macht das Repository zum Projekt, damit Quarto die Extensions aus `_extensions/` findet, rendert nur diese Beispiele und schreibt die Ausgabe nach `_output/`.
+In `examples/` gibt es für jeden Zweck eine Datei mit den Elementen, die die Extension besonders behandelt, jeweils in allen Formaten des Zwecks: `slides.qmd`, `notes.qmd`, `assignments.qmd`. Die `_quarto.yml` im Wurzelverzeichnis macht das Repository zum Projekt, damit Quarto die Extensions aus `_extensions/` findet, rendert nur diese Beispiele und schreibt die Ausgabe nach `__output/`.
 
 ```bash
 quarto render                        # alle Beispiele
