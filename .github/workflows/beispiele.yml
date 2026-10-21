@@ -35,10 +35,11 @@ jobs:
             any::gt
             any::reactable
 
-      - uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          version: 1.10.18
-          tinytex: true
+      # Quarto ist auf dem Runner vorinstalliert
+      - name: TinyTeX
+        run: |
+          quarto --version
+          quarto install tinytex --no-prompt
 
       - name: Rendern
         run: quarto render
