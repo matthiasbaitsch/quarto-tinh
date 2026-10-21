@@ -1,7 +1,7 @@
 /.quarto/
 *_files/
 *.html
-/_output/
+/__output/
 .DS_Store
 
 **/*.quarto_ipynb

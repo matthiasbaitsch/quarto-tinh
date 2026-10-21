@@ -11,6 +11,12 @@ format:
 ::: {#exr-a1}
 ## Verwenden
 
+```{r}
+library(gt)
+
+penguins |> gt()
+```
+
 Bestimmen Sie für die folgenden Daten den [Mittelwert]{.neuerbegriff}.
 
 | Station | Jahr | Niederschlag |
