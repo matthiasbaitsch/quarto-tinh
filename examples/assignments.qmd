@@ -14,7 +14,7 @@ format:
 ```{r}
 library(gt)
 
-penguins |> gt()
+penguins |> head(10) |> gt()
 ```
 
 Bestimmen Sie für die folgenden Daten den [Mittelwert]{.neuerbegriff}.
