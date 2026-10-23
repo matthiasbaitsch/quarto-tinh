@@ -1,15 +1,15 @@
 ---
-title: Beispielfolien
-subtitle: Test der Extension tinh-slides
+title: Mittelwerte berechnen
+subtitle: Beispiel für die Extension tinh-slides
 author: Matthias Baitsch
 format:
   tinh-slides-revealjs: default
   tinh-slides-typst: default
 ---
 
-# Abschnitt
+# Daten
 
-## Tabelle
+## Pinguine
 
 ```{r}
 library(gt)
@@ -20,108 +20,115 @@ if (knitr::is_html_output()) {
 }
 ```
 
-## Text und Listen
+## Merkmale
 
-Ein Absatz mit einem [neuen Begriff]{.neuerbegriff} und einem [Hinweis]{.alert}.
+Jede Spalte ist ein [Merkmal]{.neuerbegriff}, fehlende Werte sind als `NA`
+[markiert]{.alert}.
 
-- Erster Punkt
-- Zweiter Punkt
-  - Unterpunkt
+- Quantitative Merkmale
+  - Schnabellänge, Gewicht
+- Qualitative Merkmale
+  - Art, Insel
 
-Absatz direkt nach einer Liste.
+Für den Mittelwert kommen nur quantitative Merkmale infrage.
 
-### Überschrift nach Text
+### Vorgehen
 
-1. Nummeriert
-2. Liste
+1. Fehlende Werte entfernen
+2. Mittelwert berechnen
 
-## Code
+# Programm
+
+## Mittelwert in C\#
 
 ```csharp {filename="Program.cs"}
-Console.WriteLine("Hallo");
+double[] x = { 39.1, 39.5, 40.3 };
+Console.WriteLine(x.Average());
 ```
 
-### Überschrift nach Code
+### Ausgabe
 
 ```csharp
-int x = 4711;
+Console.WriteLine(x.Length);
 ```
 
 ```output
-4711
+3
 ```
 
 ```
 Ausgabe ohne Syntaxhervorhebung
 ```
 
-## Rohdaten und Rahmen
+## Eingabedatei
 
 ```raw
-Station;Jahr;Niederschlag
-Bochum;2024;1012.3
+art;insel;schnabel
+Adelie;Torgersen;39.1
 ```
 
 []{.down20}
 
-[Text mit Rahmen]{.framed}
+[Die Datei liegt im Ordner `daten`.]{.framed}
 
-## Spalten
+## Code und Erklärung
 
 ::: {.columns}
 ::::: {.column width="50%"}
-### Links
+### Code
 
 ```csharp
-double a = 1.5;
+double m = x.Average();
 ```
 :::::
 ::::: {.column width="5%"}
 :::::
 ::::: {.column width="45%"}
-### Rechts
+### Erklärung
 
-Text in der rechten Spalte.
+`Average` stammt aus LINQ und liefert den Mittelwert.
 :::::
 :::
 
-## Fragments
+## Fehlende Werte
 
 ::: {.r-stack}
 ::::: {.fragment .fade-out fragment-index=1}
-Inhalt A, beim Öffnen sichtbar
+Mit `NA` ist der Mittelwert nicht definiert.
 :::::
 ::::: {.fragment .fade-in fragment-index=1}
-Inhalt B, ersetzt A nach einem Klick
+Ohne `NA` lässt er sich berechnen.
 :::::
 :::
 
-## Pausen
+## Median
 
-Erster Teil
+Der Median ist der mittlere Wert der sortierten Daten.
 
 . . .
 
-Zweiter Teil nach einem Klick
+Er ist robust gegen Ausreißer.
 
-## Kasten, Tabelle und Formel
+# Anwendung
+
+## Biegemoment
 
 ::: {.objective}
-Lernziel in einem Kasten
+Sie können das maximale Moment eines Einfeldträgers berechnen.
 :::
 
-  | Größe | Wert      |
-  | ----- | --------- |
-  | Länge | 5.0 m     |
-  | Last  | 10.0 kN/m |
+| Größe | Wert      |
+|-------|-----------|
+| Länge | 5.0 m     |
+| Last  | 10.0 kN/m |
 
 $$
-  M_{max} = \frac{q \ell^2}{8}
+M_{max} = \frac{q \ell^2}{8}
 $$
 
-## Haken und Kreuz
+## Skalen
 
-  | Skala      | ordnen    | Quotienten |
-  | ---------- | :-------: | :--------: |
-  | nominal    | []{.nein} | []{.nein}  |
-  | Verhältnis |  []{.ja}  |  []{.ja}   |
+| Skala      | ordnen    | Quotienten |
+|------------|:---------:|:----------:|
+| nominal    | []{.nein} | []{.nein}  |
+| Verhältnis | []{.ja}   | []{.ja}    |

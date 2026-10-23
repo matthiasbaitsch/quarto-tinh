@@ -1,52 +1,60 @@
 ---
-title: Beispielaufgaben
-subtitle: Test der Extension tinh-assignments
+title: "Übung 1: Lage- und Streuungsmaße"
+subtitle: Beispiel für die Extension tinh-assignments
 format:
   tinh-assignments-html: default
   tinh-assignments-typst: default
 ---
 
-# Grundlagen
+# Lagemaße
 
-::: {#exr-a1}
-## Verwenden
+::: {#exr-mittelwert}
+## Mittelwert
 
-```{r}
-library(gt)
-
-penguins |> head(10) |> gt()
-```
-
-Bestimmen Sie für die folgenden Daten den [Mittelwert]{.neuerbegriff}.
+An zwei Wetterstationen wurde 2024 der Jahresniederschlag in mm gemessen.
 
 | Station | Jahr | Niederschlag |
 |---------|------|-------------:|
 | Bochum  | 2024 |       1012.3 |
 | Essen   | 2024 |        934.8 |
 
-::: {.beispiel}
+Bestimmen Sie den Mittelwert der beiden Messwerte.
+
 Hinweis: Der Mittelwert ist $\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$.
 :::
+
+::: {#exr-pinguine}
+## Pinguine
+
+Die Tabelle zeigt die ersten zehn Datensätze aus `penguins`.
+
+```{r}
+#| echo: false
+library(gt)
+
+penguins |> head(10) |> gt()
+```
+
+a) Bestimmen Sie Mittelwert und Median der Schnabellänge `bill_len`.
+b) Wie gehen Sie mit dem fehlenden Wert (`NA`) um?
 :::
 
-::: {#exr-a2}
-## Nachrechnen
+# Streuung
 
-Kreuzen Sie an, welche Aussagen richtig sind.
+::: {#exr-aussagen}
+## Aussagen prüfen
 
-| Aussage                                  | richtig   |
-|------------------------------------------|:---------:|
-| Der Median ist robust gegen Ausreißer.   | []{.ja}   |
-| Die Varianz kann negativ sein.           | []{.nein} |
+Welche Aussagen sind richtig? Begründen Sie Ihre Antwort.
+
+a) Der Median ist robust gegen Ausreißer.
+b) Die Varianz kann negativ sein.
 :::
 
-::: {#exr-a3}
-## Denk dir was aus
+::: {#exr-varianz}
+## Varianz
 
-a) Erster Teil
-b) Zweiter Teil
+Die Varianz ist $s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2$.
 
-::: {.definition}
-Eine Definition als Erinnerung.
-:::
+a) Berechnen Sie die Varianz der Niederschläge aus @exr-mittelwert.
+b) Warum steht im Nenner $n - 1$ und nicht $n$?
 :::

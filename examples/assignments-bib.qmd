@@ -1,0 +1,39 @@
+---
+title: "Übung 2: Typenhalle"
+subtitle: Beispiel für die Extension tinh-assignments mit Literaturverzeichnis
+format:
+  tinh-assignments-html: default
+  tinh-assignments-typst: default
+---
+
+::: {#exr-pfette}
+## Pfette
+
+Eine Pfette der Typenhalle aus @bauforumstahl2016 wird als Einfeldträger
+berechnet.
+
+| Größe  | Wert       |
+|--------|-----------:|
+| Länge  |    6.00 m  |
+| Last   | 4.50 kN/m  |
+
+Bestimmen Sie das maximale Biegemoment.
+
+Hinweis: Für den Einfeldträger unter Gleichlast gilt $M_{max} = \frac{q \ell^2}{8}$.
+:::
+
+::: {#exr-annahmen}
+## Annahmen prüfen
+
+Welche Annahmen treffen für @exr-pfette zu? Begründen Sie Ihre Antwort.
+
+a) Die Pfette ist gelenkig gelagert.
+b) Das Eigengewicht ist vernachlässigbar.
+:::
+
+::: {#exr-vergleich}
+## Vergleich
+
+a) Vergleichen Sie Ihr Ergebnis mit der Musterstatik.
+b) Begründen Sie mögliche Abweichungen.
+:::

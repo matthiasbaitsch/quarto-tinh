@@ -14,7 +14,7 @@ Die Beispiele aus `examples/` werden bei jedem Push auf `main` gerendert und auf
 | Folien (`slides.qmd`)                 | [revealjs](https://matthiasbaitsch.github.io/quarto-tinh/examples/slides.html) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/slides.pdf) |
 | Skript (`notes.qmd`)                  | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/notes.html) | [LaTeX](https://matthiasbaitsch.github.io/quarto-tinh/examples/notes.pdf) |
 | Aufgaben (`assignments.qmd`)          | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/assignments.html) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/assignments.pdf) |
-| Aufgaben mit Literatur (`assignments-mit-bibliographie.qmd`) | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/assignments-mit-bibliographie.html) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/assignments-mit-bibliographie.pdf) |
+| Aufgaben mit Literatur (`assignments-bib.qmd`) | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/assignments-bib.html) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/assignments-bib.pdf) |
 
 ## Formate
 
@@ -40,6 +40,8 @@ Klassen, die in allen Formaten gleich verwendet werden:
 | `[Begriff]{.neuerbegriff}`   | neuer Begriff, dunkelrot (`accent2`)     |
 | `[]{.ja}`, `[]{.nein}`       | grüner Haken, rotes Kreuz                |
 | `[]{.down20}` usw.           | vertikaler Abstand, nur Folien (Typst: 10 bis 50, revealjs: auch `.upN` und weitere Werte) |
+
+Ausnahme: Bei `tinh-assignments-typst` wirken diese Klassen nicht.
 
 ## Typst-Folien
 

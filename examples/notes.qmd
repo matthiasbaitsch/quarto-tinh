@@ -1,63 +1,72 @@
 ---
-title: Beispielskript
-subtitle: Test der Extension tinh-notes
+title: Beschreibende Statistik
+subtitle: Beispiel für die Extension tinh-notes
 author: Matthias Baitsch
 format:
   tinh-notes-html: default
   tinh-notes-pdf: default
 ---
 
-## Begriffe
+## Merkmale
 
 Ein [Merkmal]{.neuerbegriff} ist eine Eigenschaft, die an jeder
 [Beobachtungseinheit]{.neuerbegriff} erhoben wird. Beide Begriffe stehen im PDF
 im Index.
 
 ::: {.definition}
-**Definition.** Eine Definition in einem Kasten.
+**Definition.** Die Werte, die ein Merkmal annehmen kann, heißen seine
+Ausprägungen.
 
-Mit einem zweiten Absatz.
+Ein Merkmal ist quantitativ, wenn seine Ausprägungen Zahlen sind, sonst qualitativ.
 :::
 
 ::: {.beispiel}
-Ein Beispiel mit Balken am linken Rand.
+Beobachtungseinheiten sind Wetterstationen, das Merkmal ist der
+Jahresniederschlag in mm.
 
-  | Station | Jahr | Niederschlag |
-  | ------- | ---- | -----------: |
-  | Bochum  | 2024 |       1012.3 |
+| Station | Jahr | Niederschlag |
+|---------|------|-------------:|
+| Bochum  | 2024 |       1012.3 |
+| Essen   | 2024 |        934.8 |
 :::
 
 ### Skalen
 
-  | Skala      | ordnen    | Quotienten |
-  | ---------- | :-------: | :--------: |
-  | nominal    | []{.nein} | []{.nein}  |
-  | ordinal    |  []{.ja}  | []{.nein}  |
-  | Verhältnis |  []{.ja}  |  []{.ja}   |
+Welche Rechenoperationen sinnvoll sind, hängt von der Skala ab.
 
-### Liste mit Beschreibungen
+| Skala      | ordnen    | Quotienten |
+|------------|:---------:|:----------:|
+| nominal    | []{.nein} | []{.nein}  |
+| ordinal    | []{.ja}   | []{.nein}  |
+| Verhältnis | []{.ja}   | []{.ja}    |
+
+### Beispiele für Skalen
 
 Nominal
-:   Nur Gleichheit ist sinnvoll.
+:   Augenfarbe, Wohnort. Nur Gleichheit ist sinnvoll.
 
 Ordinal
-:   Werte lassen sich ordnen.
+:   Schulnoten. Die Werte lassen sich ordnen.
 
-## Formeln und Code
+Verhältnis
+:   Niederschlag, Länge. Auch Quotienten sind sinnvoll.
+
+## Lagemaße
 
 Der Mittelwert ist
 
 $$
-  \bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i .
+\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i .
 $$
 
-### In Python
+### Berechnung in Python
 
 ```python
-x = [1.0, 2.0, 4.0]
+x = [1012.3, 934.8]
 print(sum(x) / len(x))
 ```
 
-#### Überschrift auf Ebene 4
+#### Hinweis zur Genauigkeit
 
-Erscheint im HTML-Inhaltsverzeichnis (`toc-depth: 4`).
+Diese Überschrift auf Ebene 4 erscheint im HTML-Inhaltsverzeichnis
+(`toc-depth: 4`).
