@@ -13,14 +13,18 @@ Ein [Merkmal]{.neuerbegriff} ist eine Eigenschaft, die an jeder
 [Beobachtungseinheit]{.neuerbegriff} erhoben wird. Beide Begriffe stehen im PDF
 im Index.
 
-::: {.definition}
-**Definition.** Die Werte, die ein Merkmal annehmen kann, heißen seine
-Ausprägungen.
+::: {#def-auspraegung}
+## Ausprägung
+
+Die Werte, die ein Merkmal annehmen kann, heißen seine
+[Ausprägungen]{.neuerbegriff}.
 
 Ein Merkmal ist quantitativ, wenn seine Ausprägungen Zahlen sind, sonst qualitativ.
 :::
 
-::: {.beispiel}
+::: {#exm-niederschlag}
+## Niederschlag
+
 Beobachtungseinheiten sind Wetterstationen, das Merkmal ist der
 Jahresniederschlag in mm.
 
@@ -53,17 +57,55 @@ Verhältnis
 
 ## Lagemaße
 
-Der Mittelwert ist
+::: {#def-mittelwert}
+## Mittelwert
+
+Für Werte $x_1, \dots, x_n$ eines quantitativen Merkmals heißt
 
 $$
-\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i .
+\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
 $$
+
+der [Mittelwert]{.neuerbegriff}.
+:::
+
+Nach @def-mittelwert ist der Mittelwert der Niederschläge oben
+$\frac{1}{2}(1012.3 + 934.8) = 973.55$ mm.
 
 ### Berechnung in Python
 
 ```python
 x = [1012.3, 934.8]
 print(sum(x) / len(x))
+```
+
+### Berechnung in R
+
+Mittelwert und Median der Schnabellänge aus `penguins`, fehlende Werte werden
+übergangen.
+
+```{r}
+#| message: false
+library(tidyverse)
+
+penguins |>
+  summarise(
+    mittelwert = mean(bill_len, na.rm = TRUE),
+    median = median(bill_len, na.rm = TRUE)
+  )
+```
+
+@fig-schnabel zeigt die Verteilung mit dem Mittelwert als senkrechte Linie.
+
+```{r}
+#| label: fig-schnabel
+#| fig-cap: Schnabellänge der Pinguine
+#| warning: false
+penguins |>
+  ggplot(aes(x = bill_len)) +
+  geom_histogram(bins = 20) +
+  geom_vline(xintercept = mean(penguins$bill_len, na.rm = TRUE), linewidth = 1) +
+  labs(x = "Schnabellänge in mm", y = "Anzahl")
 ```
 
 #### Hinweis zur Genauigkeit

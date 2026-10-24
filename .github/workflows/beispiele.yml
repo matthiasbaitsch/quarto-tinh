@@ -30,10 +30,11 @@ jobs:
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           packages: |
-            any::knitr
-            any::rmarkdown
             any::gt
+            any::knitr
             any::reactable
+            any::rmarkdown
+            any::tidyverse
 
       # Quarto ist auf dem Runner vorinstalliert
       - name: TinyTeX

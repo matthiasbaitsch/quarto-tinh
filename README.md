@@ -22,14 +22,14 @@ Formate heißen `tinh-<zweck>-<grundformat>`.
 
 | Extension     | Format                 | Basis    | Inhalt                                                  |
 |---------------|------------------------|----------|---------------------------------------------------------|
-| `tinh-slides` | `tinh-slides-revealjs` | revealjs | Folien-Stil, Titelfolie mit Logo aus der Brand          |
-| `tinh-slides` | `tinh-slides-typst`    | typst    | Folien als PDF mit touying, Theme `clean`, Titelfolie mit Logo aus der Brand |
-| `tinh-notes`  | `tinh-notes-html`      | html     | Skript: Inhaltsverzeichnis, Logo aus der Brand über `toc-title` (bei Büchern und Websites stattdessen in der Seitenleiste) |
+| `tinh-slides` | `tinh-slides-revealjs` | revealjs | Folien-Stil, ohne Logo                                  |
+| `tinh-slides` | `tinh-slides-typst`    | typst    | Folien als PDF mit touying, Theme `clean`, ohne Logo |
+| `tinh-notes`  | `tinh-notes-html`      | html     | Skript mit Inhaltsverzeichnis                           |
 | `tinh-notes`  | `tinh-notes-pdf`       | pdf      | Skript als PDF (LaTeX) mit Index                        |
 | `tinh-assignments` | `tinh-assignments-html` | html | Aufgabenblätter                                      |
 | `tinh-assignments` | `tinh-assignments-typst` | typst | Aufgabenblätter als PDF (Typst), Schrift Libertinus Serif |
 
-`tinh-notes` enthält den Filter `latex-environment.lua` aus [quarto-ext/latex-environment](https://github.com/quarto-ext/latex-environment) (MIT, siehe `LICENSE-latex-environment`). Für PDF sind die Befehle `neuerbegriff`, `ja`, `nein` und die Umgebung `beispiel` voreingestellt (`commands`, `environments`). Geplant: Typst-Format für das Skript.
+`tinh-notes` bettet [quarto-ext/latex-environment](https://github.com/quarto-ext/latex-environment) unverändert ein (MIT, siehe `LICENSE-latex-environment`), aktualisieren mit `quarto add quarto-ext/latex-environment --embed tinh-notes`. Für PDF sind die Befehle `neuerbegriff`, `ja` und `nein` voreingestellt (`commands`). Definitionen (`#def-`) und Beispiele (`#exm-`) sind Quartos eigene Umgebungen, die Extension gibt ihnen in HTML und PDF einen Kasten. Geplant: Typst-Format für das Skript.
 
 ## Befehle
 
@@ -47,11 +47,16 @@ Ausnahme: Bei `tinh-assignments-typst` wirken diese Klassen nicht.
 
 `tinh-slides-typst` baut auf der touying-Bridge
 [kazuyanagimoto/quarto-touying-typst](https://github.com/kazuyanagimoto/quarto-touying-typst) (MIT, siehe
-`LICENSE-touying`) und dem Typst-Paket `touying-quarto-clean` auf. Übernommen und angepasst:
-`touying.lua`, `environment.lua` (um die Befehle oben ergänzt), `shortcodes.lua`, `typst-template.typ`,
-`typst-show.typ` (um das Logo ergänzt). Theme, Befehle und Titelfolie stehen in `tinh-slides.typ`. `page.typ`
-ist Quartos Fassung ohne das Logo auf jeder Seite. Pausen mit `. . .`, Optionen `aspect-ratio` und `handout`
-wie bei der Bridge.
+`LICENSE-touying`) und dem Typst-Paket `touying-quarto-clean` auf. Die Bridge ist unverändert in
+`_extensions/tinh-slides/_extensions/` eingebettet, die Befehle oben meldet `_extension.yml` über `commands:` an.
+Theme, Befehle und Titelfolie stehen in `tinh-slides.typ`. Pausen mit `. . .`, Optionen `aspect-ratio` und
+`handout` wie bei der Bridge.
+
+Bridge aktualisieren:
+
+```bash
+quarto add kazuyanagimoto/quarto-touying-typst --embed tinh-slides
+```
 
 ## Einbinden
 
@@ -71,15 +76,7 @@ einchecken.
 
 ## Logo
 
-Das Logo auf der Titelfolie ist `logo.medium` aus der `_brand.yml` des Projekts, z. B.
-
-```yaml
-logo:
-  small: favicon.svg
-  medium: logo.svg
-```
-
-Statt einer Datei kann `logo.medium` auch eine URL sein, die bei revealjs direkt verwendet wird (Typst kann keine Bilder aus dem Netz laden, dort gibt es dann kein Logo). Eine lokale Datei bettet der Filter `logo.lua` bei revealjs als Daten-URI ein, damit es ohne Pfade funktioniert (Dokumente in Unterordnern, `output-dir`, Zips). Quartos eigenes Logo unten rechts auf jeder Folie ist abgeschaltet (`logo: false`), es verweist bei `output-dir` absolut auf `/_brand/…` und ist dann kaputt. Bei Typst gibt `logo.lua` den Pfad relativ zum Dokument an die Titelfolie weiter, Quartos Logo auf jeder Seite entfällt (eigene `page.typ`). Ohne Brand gibt es kein Logo.
+Das Logo ist `logo.medium` aus der `_brand.yml` des Projekts. Es gelten Quartos Voreinstellungen: Bei den Aufgabenblättern (Typst) steht es oben rechts auf der Seite, bei HTML-Dokumenten fehlt es. Bei den Folien ist es abgeschaltet (`logo: false`), weil Quarto es auf jede Folie setzt.
 
 ## Aktualisieren
 

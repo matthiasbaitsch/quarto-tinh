@@ -16,7 +16,7 @@ library(gt)
 if (knitr::is_html_output()) {
   penguins |> gt() |> opt_interactive(use_pagination = TRUE)
 } else {
-  penguins |> head(10) |> gt()
+  penguins |> head(5) |> gt()
 }
 ```
 
@@ -41,14 +41,14 @@ Für den Mittelwert kommen nur quantitative Merkmale infrage.
 
 ## Mittelwert in C\#
 
-```csharp {filename="Program.cs"}
+```cs {filename="Program.cs"}
 double[] x = { 39.1, 39.5, 40.3 };
 Console.WriteLine(x.Average());
 ```
 
 ### Ausgabe
 
-```csharp
+```cs
 Console.WriteLine(x.Length);
 ```
 
@@ -77,7 +77,7 @@ Adelie;Torgersen;39.1
 ::::: {.column width="50%"}
 ### Code
 
-```csharp
+```cs
 double m = x.Average();
 ```
 :::::
@@ -108,6 +108,18 @@ Der Median ist der mittlere Wert der sortierten Daten.
 . . .
 
 Er ist robust gegen Ausreißer.
+
+## Varianz
+
+Die Varianz misst, wie stark die Werte $x_1, \dots, x_n$ um den Mittelwert
+$\bar{x}$ streuen. Sie lässt sich auf zwei Arten berechnen:
+
+$$
+s^2 = \frac{1}{n-1} \sum_{i=1}^{n} \left( x_i - \bar{x} \right)^2
+    = \frac{1}{n-1} \left( \sum_{i=1}^{n} x_i^2 - n \, \bar{x}^2 \right)
+$$
+
+Die Standardabweichung $s = \sqrt{s^2}$ hat dieselbe Einheit wie die Daten.
 
 # Anwendung
 
