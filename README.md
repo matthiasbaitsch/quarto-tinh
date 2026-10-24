@@ -24,14 +24,14 @@ Formate heißen `tinh-<zweck>-<grundformat>`.
 
 | Extension     | Format                 | Basis    | Inhalt                                                  |
 |---------------|------------------------|----------|---------------------------------------------------------|
-| `tinh-slides` | `tinh-slides-revealjs` | revealjs | Folien-Stil, ohne Logo                                  |
-| `tinh-slides` | `tinh-slides-typst`    | typst    | Folien als PDF mit touying, Theme `clean`, ohne Logo |
+| `tinh-slides` | `tinh-slides-revealjs` | revealjs | Folien-Stil, Logo auf jeder Folie                       |
+| `tinh-slides` | `tinh-slides-typst`    | typst    | Folien als PDF mit touying, Theme `clean`, Logo auf jeder Folie |
 | `tinh-notes`  | `tinh-notes-html`      | html     | Skript mit Inhaltsverzeichnis                           |
 | `tinh-notes`  | `tinh-notes-pdf`       | pdf      | Skript als PDF (LaTeX) mit Index                        |
 | `tinh-assignments` | `tinh-assignments-html` | html | Aufgabenblätter                                      |
 | `tinh-assignments` | `tinh-assignments-typst` | typst | Aufgabenblätter als PDF (Typst), Schrift Libertinus Serif |
 
-`tinh-notes` bettet [quarto-ext/latex-environment](https://github.com/quarto-ext/latex-environment) unverändert ein (MIT, siehe `LICENSE-latex-environment`), aktualisieren mit `quarto add quarto-ext/latex-environment --embed tinh-notes`. Für PDF sind die Befehle `neuerbegriff`, `ja` und `nein` voreingestellt (`commands`). Definitionen (`#def-`) und Beispiele (`#exm-`) sind Quartos eigene Umgebungen, die Extension gibt ihnen in HTML und PDF einen Kasten. Geplant: Typst-Format für das Skript.
+`tinh-notes` bettet [quarto-ext/latex-environment](https://github.com/quarto-ext/latex-environment) unverändert ein (MIT, siehe `LICENSE-latex-environment`) (aktualisieren siehe unten). Für PDF sind die Befehle `neuerbegriff`, `ja` und `nein` voreingestellt (`commands`). Definitionen (`#def-`) und Beispiele (`#exm-`) sind Quartos eigene Umgebungen, die Extension gibt ihnen in HTML und PDF einen Kasten. Geplant: Typst-Format für das Skript.
 
 ## Befehle
 
@@ -51,14 +51,8 @@ Ausnahme: Bei `tinh-assignments-typst` wirken diese Klassen nicht.
 [kazuyanagimoto/quarto-touying-typst](https://github.com/kazuyanagimoto/quarto-touying-typst) (MIT, siehe
 `LICENSE-touying`) und dem Typst-Paket `touying-quarto-clean` auf. Die Bridge ist unverändert in
 `_extensions/tinh-slides/_extensions/` eingebettet, die Befehle oben meldet `_extension.yml` über `commands:` an.
-Theme (`clean`, auch die Titelfolie) und Befehle stehen in `tinh-slides.typ`. Pausen mit `. . .`, Optionen `aspect-ratio` und
-`handout` wie bei der Bridge.
-
-Bridge aktualisieren:
-
-```bash
-quarto add kazuyanagimoto/quarto-touying-typst --embed tinh-slides
-```
+Theme (`clean` mit Seitenzahl links, auch die Titelfolie) und Befehle stehen in `tinh-slides.typ`. Pausen mit `. . .`,
+Optionen `aspect-ratio` und `handout` wie bei der Bridge (aktualisieren siehe unten).
 
 ## Einbinden
 
@@ -85,6 +79,15 @@ Das Logo ist `logo.medium` aus der `_brand.yml` des Projekts. Es gelten Quartos 
 ```bash
 quarto update matthiasbaitsch/quarto-tinh
 ```
+
+Eingebettete Extensions (touying-Bridge, latex-environment) in diesem Repository aktualisieren:
+
+```bash
+make update-extensions
+```
+
+Danach gibt `make` aus, was noch zu prüfen ist (Pfade in `tinh-slides/_extension.yml`, touying-Version, Beispiele
+rendern, Versionen erhöhen).
 
 ## Testen
 
