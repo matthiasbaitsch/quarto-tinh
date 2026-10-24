@@ -1,4 +1,4 @@
-// Typst-Teil von tinh-slides: Theme, Befehle und Titelfolie
+// Typst-Teil von tinh-slides: Theme und Befehle
 // touying selbst importiert das Template der eingebetteten Bridge (gleiche Datei, steht davor)
 #import "@preview/touying-quarto-clean:0.2.1": *
 
@@ -23,26 +23,3 @@
 
 // Überschrift 3 aufrecht
 #show heading.where(level: 3): it => text(style: "normal", it)
-
-// Titelfolie wie bei clean
-#let tinh-title-slide(..args) = touying-slide-wrapper(self => {
-  let info = self.info + args.named()
-  let title = info.at("title", default: none)
-  let subtitle = info.at("subtitle", default: none)
-  let author = info.at("author", default: none)
-  let date = info.at("date", default: none)
-  let body = {
-    set align(left + horizon)
-    block(inset: (y: 1em), [
-      #text(size: 1.4em, weight: "light", title)
-      #if subtitle != none {
-        linebreak()
-        text(style: "italic", fill: self.colors.primary, subtitle)
-      }
-    ])
-    if author != none { block(author) }
-    if date != none { block(date) }
-  }
-  self = utils.merge-dicts(self, config-common(freeze-slide-counter: true))
-  touying-slide(self: self, body)
-})

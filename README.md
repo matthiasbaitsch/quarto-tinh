@@ -7,7 +7,9 @@ Die Extensions enthalten nur Layout und Stil. Was eine Einrichtung ausmacht (Log
 
 ## Beispiele
 
-Die Beispiele aus `examples/` werden bei jedem Push auf `main` gerendert und auf GitHub Pages veröffentlicht:
+Die Beispiele aus `examples/` werden bei jedem Push auf `main` gerendert und auf GitHub Pages veröffentlicht. Sie
+verwenden die Brand der Hochschule Bochum ([hsbo-brand](https://github.com/matthiasbaitsch/hsbo-brand), in
+`_brand/`), die Extensions selbst sind neutral.
 
 | Beispiel                              | HTML | PDF |
 |---------------------------------------|------|-----|
@@ -49,7 +51,7 @@ Ausnahme: Bei `tinh-assignments-typst` wirken diese Klassen nicht.
 [kazuyanagimoto/quarto-touying-typst](https://github.com/kazuyanagimoto/quarto-touying-typst) (MIT, siehe
 `LICENSE-touying`) und dem Typst-Paket `touying-quarto-clean` auf. Die Bridge ist unverändert in
 `_extensions/tinh-slides/_extensions/` eingebettet, die Befehle oben meldet `_extension.yml` über `commands:` an.
-Theme, Befehle und Titelfolie stehen in `tinh-slides.typ`. Pausen mit `. . .`, Optionen `aspect-ratio` und
+Theme (`clean`, auch die Titelfolie) und Befehle stehen in `tinh-slides.typ`. Pausen mit `. . .`, Optionen `aspect-ratio` und
 `handout` wie bei der Bridge.
 
 Bridge aktualisieren:

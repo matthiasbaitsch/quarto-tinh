@@ -497,3 +497,7 @@ $selection-bg: #26351c !default;
     margin-top: #{$n}px;
   }
 }
+
+#title-slide .quarto-title-author-name {
+  font-size: 0.8em;
+}

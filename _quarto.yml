@@ -5,3 +5,10 @@ project:
 
 csl: style.csl
 bibliography: bibliographie.bib
+
+# Logo der Brand (hsbo-brand) auf den Aufgabenblättern im Querformat
+format:
+  tinh-assignments-typst:
+    logo:
+      path: medium
+      width: 5cm
