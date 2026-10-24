@@ -378,6 +378,15 @@ $selection-bg: #26351c !default;
   .slide-chalkboard-buttons>* {
     pointer-events: auto;
   }
+
+  // Mit Logo (unten rechts) setzt Quarto die Seitenzahl oben rechts, dort liegt aber das Menü.
+  // !important, weil Quartos footer.css nach dem Theme kommt
+  &.has-logo .slide-number {
+    top: initial !important;
+    right: initial !important;
+    bottom: 10px !important;
+    left: 10px !important;
+  }
 }
 
 // Hilfsklassen (ohne .reveal)

@@ -2,6 +2,12 @@
 // touying selbst importiert das Template der eingebetteten Bridge (gleiche Datei, steht davor)
 #import "@preview/touying-quarto-clean:0.2.1": *
 
+// clean mit Seitenzahl links, rechts unten ist Platz für das Logo (logo: in _extension.yml)
+#let tinh-clean-theme = clean-theme.with(
+  hide-slide-numbers: true,
+  footer: context utils.slide-counter.display() + " / " + utils.last-slide-number,
+)
+
 // Befehle (Klassen per environment.lua der Bridge und commands: in _extension.yml, z. B. [Begriff]{.neuerbegriff})
 #let neuerbegriff(body) = text(fill: rgb("#9a2515"), weight: "regular", body)
 #let ja(body) = text(fill: rgb("#2e7d32"))[✓]

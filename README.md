@@ -78,7 +78,7 @@ einchecken.
 
 ## Logo
 
-Das Logo ist `logo.medium` aus der `_brand.yml` des Projekts. Es gelten Quartos Voreinstellungen: Bei den Aufgabenblättern (Typst) steht es oben rechts auf der Seite, bei HTML-Dokumenten fehlt es. Bei den Folien ist es abgeschaltet (`logo: false`), weil Quarto es auf jede Folie setzt.
+Das Logo ist `logo.medium` aus der `_brand.yml` des Projekts. Es gelten Quartos Voreinstellungen: Bei den Aufgabenblättern (Typst) steht es oben rechts auf der Seite, bei HTML-Dokumenten fehlt es. Bei den Folien steht `logo.small` auf jeder Folie: bei revealjs unten rechts (eingebettet von `logo.lua`, weil Quarto den Pfad in Unterordnern falsch setzt), die Seitenzahl dann unten links; bei Typst ebenso.
 
 ## Aktualisieren
 
