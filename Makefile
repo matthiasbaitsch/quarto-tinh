@@ -1,4 +1,8 @@
-.PHONY: update-extensions
+.PHONY: render update-extensions
+
+# Alle Beispiele rendern (Ausgabe in __output)
+render:
+	quarto render
 
 # Eingebettete Extensions auf den neuesten Stand bringen
 update-extensions:

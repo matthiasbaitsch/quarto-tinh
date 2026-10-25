@@ -78,6 +78,11 @@ $selection-bg: #26351c !default;
 .reveal {
   font-weight: lighter;
 
+  // Abschnittsfolien blau wie bei typst
+  h1 {
+    color: $accent;
+  }
+
   h2 {
     font-size: 1.4em;
   }

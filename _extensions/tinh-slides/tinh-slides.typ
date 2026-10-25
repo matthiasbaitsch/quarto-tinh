@@ -2,8 +2,25 @@
 // touying selbst importiert das Template der eingebetteten Bridge (gleiche Datei, steht davor)
 #import "@preview/touying-quarto-clean:0.2.1": *
 
+// Abschnittsfolie (Überschrift 1) wie bei clean, aber kleiner und leicht statt 2em fett
+#let tinh-section-slide(self: none, body) = touying-slide-wrapper(self => {
+  let main-body = {
+    set align(left + horizon)
+    set text(
+      size: 1.6em,
+      fill: self.colors.primary,
+      weight: self.store.font-weight-heading,
+      font: self.store.font-family-heading,
+    )
+    utils.display-current-heading(level: 1)
+  }
+  self = utils.merge-dicts(self, config-page(margin: (left: 2em, top: -0.25em)))
+  touying-slide(self: self, main-body)
+})
+
 // clean mit Seitenzahl links, rechts unten ist Platz für das Logo (logo: in _extension.yml)
 #let tinh-clean-theme = clean-theme.with(
+  config-common(new-section-slide-fn: tinh-section-slide),
   hide-slide-numbers: true,
   footer: context utils.slide-counter.display() + " / " + utils.last-slide-number,
 )
