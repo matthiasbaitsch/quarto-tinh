@@ -24,13 +24,19 @@
 // im Header einbindet; das Theme wird später angewendet, die Regel greift so zuerst
 #let tinh-clean-theme(..args) = {
   // Definition (::: {#def-...}) im Kasten wie bei tinh-notes
+  // Titel nur regular statt fett: "Definition" setzt Quarto als text(weight: "bold"),
+  // Nummer und Name per strong (light + 100 = regular)
   show figure.where(kind: "definition"): it => block(
     width: 100%,
     fill: rgb("#f5f5f5"),
-    stroke: 2pt,
+    stroke: 1.5pt,
     radius: 5pt,
-    inset: 5pt,
-    align(left, it),
+    inset: 0.6em,
+    {
+      show text.where(weight: "bold"): set text(weight: "regular")
+      set strong(delta: 100)
+      align(left, it)
+    },
   )
   clean-theme(
     config-common(new-section-slide-fn: tinh-section-slide),
