@@ -19,11 +19,26 @@
 })
 
 // clean mit Seitenzahl links, rechts unten ist Platz für das Logo (logo: in _extension.yml)
-#let tinh-clean-theme = clean-theme.with(
-  config-common(new-section-slide-fn: tinh-section-slide),
-  hide-slide-numbers: true,
-  footer: context utils.slide-counter.display() + " / " + utils.last-slide-number,
-)
+// Die Regel für Definitionen steht hier statt auf oberster Ebene, weil Quarto
+// theorions show-definition (macht aus dem figure seinen Inhalt) erst danach
+// im Header einbindet; das Theme wird später angewendet, die Regel greift so zuerst
+#let tinh-clean-theme(..args) = {
+  // Definition (::: {#def-...}) im Kasten wie bei tinh-notes
+  show figure.where(kind: "definition"): it => block(
+    width: 100%,
+    fill: rgb("#f5f5f5"),
+    stroke: 2pt,
+    radius: 5pt,
+    inset: 5pt,
+    align(left, it),
+  )
+  clean-theme(
+    config-common(new-section-slide-fn: tinh-section-slide),
+    hide-slide-numbers: true,
+    footer: context utils.slide-counter.display() + " / " + utils.last-slide-number,
+    ..args,
+  )
+}
 
 // Befehle (Klassen per environment.lua der Bridge und commands: in _extension.yml, z. B. [Begriff]{.neuerbegriff})
 #let neuerbegriff(body) = text(fill: rgb("#9a2515"), weight: "regular", body)
@@ -40,6 +55,10 @@
 
 // Tabellen ohne Typsts Standardraster
 #set table(stroke: none)
+
+// Abgesetzte Formeln linksbündig, 1em eingerückt
+#show math.equation.where(block: true): set align(left)
+#show math.equation.where(block: true): it => pad(left: 1em, it)
 
 // Text in Code kleiner
 #show raw.where(block: true): set text(size: 0.8em)

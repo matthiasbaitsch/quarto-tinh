@@ -37,6 +37,18 @@ Für den Mittelwert kommen nur quantitative Merkmale infrage.
 1. Fehlende Werte entfernen
 2. Mittelwert berechnen
 
+## Definition
+
+::: {#def-arithmetisches-mittel}
+## Arithmetisches Mittel
+
+Für Werte $x_1, \dots, x_n$ ist das arithmetische Mittel
+
+$$
+\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
+$$
+:::
+
 # Programm
 
 ## Mittelwert in C\#

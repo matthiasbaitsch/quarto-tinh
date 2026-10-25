@@ -96,6 +96,12 @@ $selection-bg: #26351c !default;
     font-size: 1.3em;
   }
 
+  // Abgesetzte Formeln linksbündig, 1em eingerückt (wie bei typst)
+  mjx-container[display="true"] {
+    text-align: left !important;
+    margin-left: 1em !important;
+  }
+
   dl dt {
     color: $accent2;
     font-weight: 400;
@@ -178,6 +184,22 @@ $selection-bg: #26351c !default;
 
   div.objective p {
     margin: 0 !important;
+  }
+
+  // Definition (::: {#def-...}) im Kasten wie bei tinh-notes
+  div.definition {
+    background-color: WhiteSmoke;
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 5pt;
+  }
+
+  div.definition > :first-child {
+    margin-top: 0 !important;
+  }
+
+  div.definition > :last-child {
+    margin-bottom: 0 !important;
   }
 }
 
