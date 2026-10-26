@@ -17,6 +17,9 @@ verwenden die Brand der Hochschule Bochum ([hsbo-brand](https://github.com/matth
 | Skript (`notes.qmd`)                  | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/notes.html) | [LaTeX](https://matthiasbaitsch.github.io/quarto-tinh/examples/notes.pdf) |
 | Aufgaben (`assignments.qmd`)          | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/assignments.html) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/assignments.pdf) |
 | Aufgaben mit Literatur (`assignments-bib.qmd`) | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/assignments-bib.html) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/assignments-bib.pdf) |
+| Makros (`macros.qmd`), Folien         | [revealjs](https://matthiasbaitsch.github.io/quarto-tinh/examples/macros-slides.html) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/macros-slides.pdf) |
+| Makros, Skript                        | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/macros-notes.html) | [LaTeX](https://matthiasbaitsch.github.io/quarto-tinh/examples/macros-notes.pdf) |
+| Makros, Aufgaben                      | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/macros-assignments.html) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/macros-assignments.pdf) |
 
 ## Formate
 
@@ -44,6 +47,25 @@ Klassen, die in allen Formaten gleich verwendet werden:
 | `[]{.down20}` usw.           | vertikaler Abstand, nur Folien (Typst: 10 bis 50, revealjs: auch `.upN` und weitere Werte) |
 
 Ausnahme: Bei `tinh-assignments-typst` wirken diese Klassen nicht.
+
+## Makros
+
+`tinh-macros` definiert LaTeX-Makros für Formeln (`math.tex`) und Einheiten nach siunitx (`units.tex`), alle anderen
+Extensions binden den Filter `macros.lua` ein. Er setzt die Makros vor der Ausgabe ein, so dass sie in HTML und Typst
+ankommen. Im Fließtext wird z.B. `\SI{20}{\metre}` zu einer Inline-Formel (Werte also in der Mathe-Schrift). Bei
+LaTeX setzt der Filter nur die Makros aus `math.tex` ein, die Einheiten übernimmt siunitx (geladen in
+`tinh-notes.tex`).
+
+| Makro                                   | Ergebnis                       |
+|-----------------------------------------|--------------------------------|
+| `\SI{wert}{einheit}`, `\si{einheit}`, `\num{wert}` | Wert mit Einheit wie bei siunitx (vereinfacht) |
+| `\metre`, `\newton`, `\pascal`, ...     | Einheiten, siehe `units.tex`   |
+| `\kilo`, `\per`, `\squared`, `\tothe{3}`, ... | Vorsätze und Potenzen    |
+| `\R`                                    | $\mathbb{R}$                   |
+| `\mmat{a & b \\ c & d}`                 | Matrix in runden Klammern      |
+| `\mtran`                                | transponiert, $^\top$          |
+
+Ohne die anderen Extensions: `filters: [tinh-macros]`.
 
 ## Typst-Folien
 

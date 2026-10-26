@@ -1,0 +1,87 @@
+---
+title: Makros
+subtitle: Beispiel für die Extension tinh-macros
+format:
+  tinh-slides-revealjs:
+    output-file: macros-slides.html
+  tinh-slides-typst:
+    output-file: macros-slides.pdf
+    # zwei Typst-Formate: ohne keep-typ löscht das erste macros.typ, bevor das zweite es liest
+    keep-typ: true
+  tinh-notes-html:
+    output-file: macros-notes.html
+  tinh-notes-pdf:
+    output-file: macros-notes.pdf
+  tinh-assignments-html:
+    output-file: macros-assignments.html
+  tinh-assignments-typst:
+    output-file: macros-assignments.pdf
+    keep-typ: true
+---
+
+## Werte mit Einheiten
+
+| Eingabe                                         | Ergebnis                                      |
+|-------------------------------------------------|-----------------------------------------------|
+| `$\SI{0.8}{\metre}$`                            | $\SI{0.8}{\metre}$                            |
+| `$\SI{35 \cdot 10^9}{\newton\per\metre\squared}$` | $\SI{35 \cdot 10^9}{\newton\per\metre\squared}$ |
+| `$\SI{2500}{\kilo\gram\per\metre\tothe{3}}$`    | $\SI{2500}{\kilo\gram\per\metre\tothe{3}}$    |
+| `$\SI{9.81}{\metre\per\second\squared}$`        | $\SI{9.81}{\metre\per\second\squared}$        |
+| `$\num{1.75 \cdot 10^7} \, \si{\newton\per\metre\squared}$` | $\num{1.75 \cdot 10^7} \, \si{\newton\per\metre\squared}$ |
+
+## Im Fließtext
+
+Ohne Dollarzeichen wird `\SI{20}{\metre}` zur Inline-Formel: Der Pfahl ist \SI{20}{\metre} lang und hat
+einen Durchmesser von \SI{80}{\centi\metre}. Der Wert steht in der Mathe-Schrift.
+
+In abgesetzten Formeln:
+
+```latex
+$$
+\begin{aligned}
+  E & = \SI{210}{\giga\pascal} \\
+  T & = \SI{20}{\degreeCelsius} = \SI{293.15}{\kelvin}
+\end{aligned}
+$$
+```
+
+$$
+\begin{aligned}
+  E & = \SI{210}{\giga\pascal} \\
+  T & = \SI{20}{\degreeCelsius} = \SI{293.15}{\kelvin}
+\end{aligned}
+$$
+
+## Alle Einheiten
+
+| Makro                | Ergebnis           | Makro              | Ergebnis         |
+|----------------------|--------------------|--------------------|------------------|
+| `\metre`             | $\si{\metre}$      | `\milli\metre`     | $\si{\milli\metre}$ |
+| `\gram`              | $\si{\gram}$       | `\centi\metre`     | $\si{\centi\metre}$ |
+| `\second`            | $\si{\second}$     | `\kilo\newton`     | $\si{\kilo\newton}$ |
+| `\minute`            | $\si{\minute}$     | `\mega\pascal`     | $\si{\mega\pascal}$ |
+| `\hour`              | $\si{\hour}$       | `\giga\pascal`     | $\si{\giga\pascal}$ |
+| `\newton`            | $\si{\newton}$     | `\metre\per\second` | $\si{\metre\per\second}$ |
+| `\pascal`            | $\si{\pascal}$     | `\metre\squared`   | $\si{\metre\squared}$ |
+| `\joule`             | $\si{\joule}$      | `\metre\cubed`     | $\si{\metre\cubed}$ |
+| `\watt`              | $\si{\watt}$       | `\metre\tothe{4}`  | $\si{\metre\tothe{4}}$ |
+| `\kelvin`            | $\si{\kelvin}$     |                    |                  |
+| `\degreeCelsius`     | $\si{\degreeCelsius}$ |                 |                  |
+
+## Mathematik allgemein
+
+| Eingabe                          | Ergebnis                        |
+|----------------------------------|---------------------------------|
+| `$x \in \R^2$`                   | $x \in \R^2$                    |
+| `$\mathbf{x}\mtran \mathbf{y}$`  | $\mathbf{x}\mtran \mathbf{y}$   |
+| `$\Rightarrow$` (kein `\R`)      | $\Rightarrow$                   |
+
+```latex
+$$
+\mathbf{A} = \mmat{1 & 2 \\ 3 & 4}, \quad \mathbf{A}\mtran = \mmat{1 & 3 \\ 2 & 4}
+$$
+```
+
+$$
+\mathbf{A} = \mmat{1 & 2 \\ 3 & 4}, \quad \mathbf{A}\mtran = \mmat{1 & 3 \\ 2 & 4}
+$$

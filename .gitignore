@@ -1,6 +1,7 @@
 /.quarto/
 *_files/
 *.html
+/examples/*.typ
 /__output/
 .DS_Store
 
