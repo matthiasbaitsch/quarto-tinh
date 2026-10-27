@@ -2,12 +2,15 @@
 --
 --                        ohne tinh-target   solution       scaffold   blank
 --   ohne Markierung      ja                 ja             ja         ja
---   ::: {.tinh-solution} ja, markiert       ja, markiert   nein       nein
+--   ::: {.tinh-solution} ja, markiert       ja, markiert*  nein       nein
 --   ::: {.tinh-scaffold} ja, markiert       nein           ja         nein
+--
+-- * im ipynb nicht markiert, das ganze Notebook ist die Lösung.
 --
 -- Bei scaffold steht nach einem .tinh-solution-Block mit Code ohne folgenden .tinh-scaffold-Block eine Code-Zelle
 -- "# ...". Markiert heißt: in HTML und Typst ein Block mit farbigem Rand und Beschriftung, sonst (z.B. ipynb) eine
--- fette Beschriftung davor. Läuft vor Quartos Filtern (pre-ast).
+-- fette Beschriftung davor. Aufeinanderfolgende markierte Blöcke derselben Art werden zu einem zusammengefasst.
+-- Läuft vor Quartos Filtern (pre-ast).
 local TARGETS = { solution = true, scaffold = true, blank = true }
 local KINDS = { ["tinh-solution"] = "solution", ["tinh-scaffold"] = "scaffold" }
 local LABELS = {
@@ -48,21 +51,21 @@ local function language(blocks)
   return lang or "julia"
 end
 
-local function marked(block, kind, label)
+local function marked(content, kind, label)
   if quarto.doc.is_format("html") then
     quarto.doc.add_html_dependency({
       name = "tinh-solution-scaffold",
       version = "0.1.0",
       stylesheets = { quarto.utils.resolve_path("solution-scaffold.css") },
     })
-    return { pandoc.Div(block.content, { class = "tinh-" .. kind, ["data-label"] = label }) }
+    return { pandoc.Div(content, { class = "tinh-" .. kind, ["data-label"] = label }) }
   elseif quarto.doc.is_format("typst") then
     local color = 'rgb("' .. COLORS[kind] .. '")'
     local open = "#block(width: 100%, stroke: (left: 1.5pt + " .. color .. "), inset: (left: 0.8em, y: 0.3em))["
       .. "#block(below: 0.6em, text(size: 0.85em, weight: \"bold\", fill: " .. color .. ")[" .. label .. "])"
-    return pandoc.Blocks({ pandoc.RawBlock("typst", open) }) .. block.content .. { pandoc.RawBlock("typst", "]") }
+    return pandoc.Blocks({ pandoc.RawBlock("typst", open) }) .. content .. { pandoc.RawBlock("typst", "]") }
   end
-  return pandoc.Blocks({ pandoc.Para(pandoc.Strong(label)) }) .. block.content
+  return pandoc.Blocks({ pandoc.Para(pandoc.Strong(label)) }) .. content
 end
 
 function Pandoc(doc)
@@ -73,18 +76,33 @@ function Pandoc(doc)
   local lang = doc.meta.lang and pandoc.utils.stringify(doc.meta.lang):match("^en") and "en" or "de"
   local placeholder = pandoc.CodeBlock("# ...", { class = "{" .. language(doc.blocks) .. "}" })
 
+  local mark_solution = target == nil or (target == "solution" and not quarto.doc.is_format("ipynb"))
+
   local function select(blocks)
     local result = pandoc.Blocks({})
+    -- offene Gruppe markierter Blöcke derselben Art, wird erst beim nächsten anderen Block ausgegeben
+    local group_kind, group = nil, pandoc.Blocks({})
+    local function flush()
+      if group_kind then
+        result:extend(marked(group, group_kind, LABELS[lang][group_kind]))
+        group_kind, group = nil, pandoc.Blocks({})
+      end
+    end
+
     for i, block in ipairs(blocks) do
       local kind = kind_of(block)
       if kind == nil then
+        flush()
         result:insert(block)
-      elseif target == nil then
-        result:extend(marked(block, kind, LABELS[lang][kind]))
+      elseif target == nil or (kind == "solution" and mark_solution) then
+        if kind ~= group_kind then
+          flush()
+          group_kind = kind
+        end
+        group:extend(block.content)
       else
-        if kind == "solution" and target == "solution" then
-          result:extend(marked(block, kind, LABELS[lang][kind]))
-        elseif kind == target then
+        if kind == target then
+          flush()
           result:extend(block.content)
         end
         local next_kind = blocks[i + 1] and kind_of(blocks[i + 1])
@@ -93,6 +111,7 @@ function Pandoc(doc)
         end
       end
     end
+    flush()
     return result
   end
 

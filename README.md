@@ -82,11 +82,12 @@ derselben Datei (Filter `solution-scaffold.lua` aus `tinh-common`). Die Variable
 | Block                     | ohne `tinh-target` | `solution` | `scaffold` | `blank` |
 |---------------------------|:------------------:|:----------:|:----------:|:-------:|
 | ohne Markierung           | ja                 | ja         | ja         | ja      |
-| `::: {.tinh-solution}`    | ja, markiert       | ja, markiert | nein     | nein    |
+| `::: {.tinh-solution}`    | ja, markiert       | ja, markiert (nicht im `ipynb`) | nein     | nein    |
 | `::: {.tinh-scaffold}`    | ja, markiert       | nein       | ja         | nein    |
 
 Markiert heißt: in HTML und Typst ein Block mit farbigem Rand und der Beschriftung „Lösung“ bzw. „Gerüst“, sonst
-(z.B. im `ipynb`) die Beschriftung fett davor. Folgt einem `.tinh-solution`-Block mit Code kein `.tinh-scaffold`-Block,
+(z.B. im `ipynb`) die Beschriftung fett davor. Stehen markierte Blöcke derselben Art direkt hintereinander (auch weil
+die Blöcke dazwischen wegfallen), gibt es nur eine Markierung. Folgt einem `.tinh-solution`-Block mit Code kein `.tinh-scaffold`-Block,
 steht im Gerüst eine Code-Zelle `# ...`. Die Blöcke dürfen in anderen stehen, z.B. in `::: {#exr-…}`. Quartos eigene
 Umgebung `.solution` („Lösung.“) bleibt davon unberührt.
 
