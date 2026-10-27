@@ -1,0 +1,10 @@
+---
+title: "Statistik: Lagemaße"
+subtitle: Beispiel für die Extension tinh-notebook (Lösung und Gerüst markiert)
+engine: markdown
+format:
+  tinh-notebook-ipynb:
+    output-file: notebook.ipynb
+---
+
+{{< include _notebook.qmd >}}

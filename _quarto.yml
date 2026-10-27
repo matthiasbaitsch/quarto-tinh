@@ -12,3 +12,7 @@ format:
     logo:
       path: medium
       width: 5cm
+  tinh-notebook-typst:
+    logo:
+      path: medium
+      width: 5cm

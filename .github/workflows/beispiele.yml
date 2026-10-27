@@ -36,6 +36,11 @@ jobs:
             any::rmarkdown
             any::tidyverse
 
+      # Für die Notebook-Beispiele (engine: julia), QuartoNotebookRunner installiert Quarto selbst
+      - uses: julia-actions/setup-julia@v2
+        with:
+          version: "1"
+
       # Quarto ist auf dem Runner vorinstalliert
       - name: TinyTeX
         run: |

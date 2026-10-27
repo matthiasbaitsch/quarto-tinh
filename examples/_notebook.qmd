@@ -1,0 +1,48 @@
+```{julia}
+using Statistics
+```
+
+## Mittelwert
+
+Gegeben sind die Jahresniederschläge zweier Wetterstationen in mm.
+
+```{julia}
+x = [1012.3, 934.8]
+```
+
+Berechnen Sie den Mittelwert $\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$, zuerst von Hand, dann mit `mean`.
+
+::: {.tinh-solution}
+```{julia}
+xbar = sum(x) / length(x)
+```
+:::
+::: {.tinh-scaffold}
+```{julia}
+# xbar = ...
+```
+:::
+
+::: {.tinh-solution}
+```{julia}
+mean(x)
+```
+:::
+
+::: {.tinh-solution}
+Beide Wege liefern $\bar{x} = \SI{973.55}{\milli\metre}$.
+:::
+
+## Streuung
+
+Berechnen Sie die Standardabweichung.
+
+::: {.tinh-scaffold}
+Hinweis: Die Funktion heißt `std`.
+:::
+
+::: {.tinh-solution}
+```{julia}
+std(x)
+```
+:::

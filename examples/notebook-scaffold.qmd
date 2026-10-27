@@ -1,0 +1,11 @@
+---
+title: "Statistik: Lagemaße"
+subtitle: Beispiel für die Extension tinh-notebook (Gerüst)
+engine: julia
+tinh-target: scaffold
+format:
+  tinh-notebook-html: default
+  tinh-notebook-typst: default
+---
+
+{{< include _notebook.qmd >}}

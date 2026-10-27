@@ -1,13 +1,16 @@
 title: tinh-assignments
 author: Matthias Baitsch
-version: 0.5.0
+version: 0.6.0
 quarto-required: ">=1.8.0"
 
 contributes:
   formats:
     common:
-      # Makros aus tinh-macros (\SI, \R, ...), Bilder zentrieren aus tinh-common
+      # Lösung und Gerüst (vor Quartos Filtern) und Bilder zentrieren aus tinh-common, Makros aus tinh-macros
+      # (\SI, \R, ...)
       filters:
+        - path: ../tinh-common/solution-scaffold.lua
+          at: pre-ast
         - ../tinh-macros/macros.lua
         - ../tinh-common/center-images.lua
       fig-align: center

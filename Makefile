@@ -1,8 +1,12 @@
-.PHONY: render update-extensions
+.PHONY: render clean update-extensions
 
 # Alle Beispiele rendern (Ausgabe in __output)
 render:
 	quarto render
+
+# Erzeugte Dateien löschen (Ausgabe, Quarto-Cache, mit keep-typ behaltene .typ)
+clean:
+	rm -rf __output .quarto examples/*.typ
 
 # Eingebettete Extensions auf den neuesten Stand bringen
 update-extensions:

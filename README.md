@@ -20,6 +20,10 @@ verwenden die Brand der Hochschule Bochum ([hsbo-brand](https://github.com/matth
 | Makros (`macros.qmd`), Folien         | [revealjs](https://matthiasbaitsch.github.io/quarto-tinh/examples/macros-slides.html) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/macros-slides.pdf) |
 | Makros, Skript                        | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/macros-notes.html) | [LaTeX](https://matthiasbaitsch.github.io/quarto-tinh/examples/macros-notes.pdf) |
 | Makros, Aufgaben                      | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/macros-assignments.html) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/macros-assignments.pdf) |
+| Notebook, beides markiert (`notebook.qmd`) | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/notebook.html), [ipynb](https://matthiasbaitsch.github.io/quarto-tinh/examples/notebook.ipynb) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/notebook.pdf) |
+| Notebook, Lösung (`notebook-solution.qmd`) | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/notebook-solution.html), [ipynb](https://matthiasbaitsch.github.io/quarto-tinh/examples/notebook-solution.ipynb) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/notebook-solution.pdf) |
+| Notebook, Gerüst (`notebook-scaffold.qmd`) | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/notebook-scaffold.html), [ipynb](https://matthiasbaitsch.github.io/quarto-tinh/examples/notebook-scaffold.ipynb) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/notebook-scaffold.pdf) |
+| Notebook, ohne beides (`notebook-blank.qmd`) | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/notebook-blank.html), [ipynb](https://matthiasbaitsch.github.io/quarto-tinh/examples/notebook-blank.ipynb) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/notebook-blank.pdf) |
 
 ## Formate
 
@@ -33,6 +37,9 @@ Formate heißen `tinh-<zweck>-<grundformat>`.
 | `tinh-notes`  | `tinh-notes-pdf`       | pdf      | Skript als PDF (LaTeX) mit Index                        |
 | `tinh-assignments` | `tinh-assignments-html` | html | Aufgabenblätter                                      |
 | `tinh-assignments` | `tinh-assignments-typst` | typst | Aufgabenblätter als PDF (Typst), Schrift Libertinus Serif |
+| `tinh-notebook` | `tinh-notebook-ipynb`  | ipynb    | Notebook mit Lösung oder Gerüst (siehe unten)           |
+| `tinh-notebook` | `tinh-notebook-html`   | html     | dasselbe als HTML, Stil wie `tinh-assignments-html`     |
+| `tinh-notebook` | `tinh-notebook-typst`  | typst    | dasselbe als PDF, Stil wie `tinh-assignments-typst`     |
 
 `tinh-notes` bettet [quarto-ext/latex-environment](https://github.com/quarto-ext/latex-environment) unverändert ein (MIT, siehe `LICENSE-latex-environment`) (aktualisieren siehe unten). Für PDF sind die Befehle `neuerbegriff`, `ja` und `nein` voreingestellt (`commands`). Definitionen (`#def-`) und Beispiele (`#exm-`) sind Quartos eigene Umgebungen, die Extension gibt ihnen in HTML und PDF einen Kasten. Geplant: Typst-Format für das Skript.
 
@@ -66,6 +73,41 @@ LaTeX setzt der Filter nur die Makros aus `math.tex` ein, die Einheiten übernim
 | `\mtran`                                | transponiert, $^\top$          |
 
 Ohne die anderen Extensions: `filters: [tinh-macros]`.
+
+## Lösung und Gerüst
+
+In Aufgaben (`tinh-assignments`) und Notebooks (`tinh-notebook`) kommen Lösung und Gerüst für die Studierenden aus
+derselben Datei (Filter `solution-scaffold.lua` aus `tinh-common`). Die Variable `tinh-target` legt die Fassung fest:
+
+| Block                     | ohne `tinh-target` | `solution` | `scaffold` | `blank` |
+|---------------------------|:------------------:|:----------:|:----------:|:-------:|
+| ohne Markierung           | ja                 | ja         | ja         | ja      |
+| `::: {.tinh-solution}`    | ja, markiert       | ja, markiert | nein     | nein    |
+| `::: {.tinh-scaffold}`    | ja, markiert       | nein       | ja         | nein    |
+
+Markiert heißt: in HTML und Typst ein Block mit farbigem Rand und der Beschriftung „Lösung“ bzw. „Gerüst“, sonst
+(z.B. im `ipynb`) die Beschriftung fett davor. Folgt einem `.tinh-solution`-Block mit Code kein `.tinh-scaffold`-Block,
+steht im Gerüst eine Code-Zelle `# ...`. Die Blöcke dürfen in anderen stehen, z.B. in `::: {#exr-…}`. Quartos eigene
+Umgebung `.solution` („Lösung.“) bleibt davon unberührt.
+
+## Notebooks
+
+Notebooks werden als `.qmd` gepflegt. Die Sprache der ersten Code-Zelle bestimmt den Kernel im `ipynb` (z.B.
+`julia`), Titel und Untertitel stehen in der ersten Zelle.
+
+Für das `ipynb` wird der Code nicht ausgeführt, dafür braucht es `engine: markdown`. Die Engine gilt für das ganze
+Dokument, weder die Extension noch ein Eintrag unter `format:` kann sie je Format setzen. Sie steht daher im YAML-Kopf
+oder kommt von der Kommandozeile (`-M engine:…` wirkt nur bei Dateien mit YAML-Kopf). HTML und Typst lassen sich mit
+einer Engine wie `julia` ausführen:
+
+```bash
+# Kopf: engine: julia
+quarto render notebook.qmd --to tinh-notebook-html -M tinh-target:solution
+quarto render notebook.qmd --to tinh-notebook-ipynb -M engine:markdown -M tinh-target:scaffold -o notebook-scaffold.ipynb
+```
+
+Die Engine läuft vor den Filtern und führt alle Zellen aus, auch die aus `.tinh-scaffold`. Code in `.tinh-scaffold` muss
+daher lauffähig sein, Lücken als Kommentar (`# xbar = ...`), nicht `xbar = # ...`.
 
 ## Grafiken
 
