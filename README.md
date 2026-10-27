@@ -67,6 +67,13 @@ LaTeX setzt der Filter nur die Makros aus `math.tex` ein, die Einheiten übernim
 
 Ohne die anderen Extensions: `filters: [tinh-macros]`.
 
+## Grafiken
+
+Grafiken stehen in allen Formaten zentriert: Abbildungen mit Bildunterschrift und Plots über `fig-align: center`,
+Bilder ohne Bildunterschrift (`![](bild.png)` allein im Absatz) über den Filter `center-images.lua` aus `tinh-common`.
+Bilder im Fließtext, Bilder mit eigenem `fig-align` und bei revealjs Bilder mit `.absolute` oder `.r-stretch` bleiben
+unverändert.
+
 ## Typst-Folien
 
 `tinh-slides-typst` baut auf der touying-Bridge
