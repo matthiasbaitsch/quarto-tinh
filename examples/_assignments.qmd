@@ -10,14 +10,24 @@ An zwei Wetterstationen wurde 2024 der Jahresniederschlag in mm gemessen.
 | Bochum  | 2024 |       1012.3 |
 | Essen   | 2024 |        934.8 |
 
-Bestimmen Sie den Mittelwert der beiden Messwerte.
+Bestimmen Sie den Mittelwert der beiden Messwerte und tragen Sie die Ergebnisse in die Tabelle ein.
+
+Hinweis: Der Mittelwert ist $\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$.
 
 ::: {.tinh-scaffold}
-Hinweis: Der Mittelwert ist $\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$.
+| Größe                    | Wert |
+|--------------------------|-----:|
+| Summe $\sum x_i$         |      |
+| Anzahl $n$               |      |
+| Mittelwert $\bar{x}$     |      |
 :::
 
 ::: {.tinh-solution}
-$\bar{x} = \frac{1012.3 + 934.8}{2} = \SI{973.55}{\milli\metre}$
+| Größe                    |                       Wert |
+|--------------------------|---------------------------:|
+| Summe $\sum x_i$         | \SI{1947.1}{\milli\metre}  |
+| Anzahl $n$               |                          2 |
+| Mittelwert $\bar{x}$     | \SI{973.55}{\milli\metre}  |
 :::
 :::
 
