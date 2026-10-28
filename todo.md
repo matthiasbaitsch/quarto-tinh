@@ -15,11 +15,11 @@
 - [X]  Notebooks mit Lösung und Gerüst als Filter in tinh: Extension `tinh-notebook` (ipynb, HTML, Typst),
   Filter `solution-scaffold.lua` in `tinh-common` (auch für `tinh-assignments`), Klassen `.tinh-solution` und
   `.tinh-scaffold`, Variable `tinh-target`. Ergebnis gleich `filter-notebook.jl` bis auf die Markierung **Lösung**.
-- [ ]  numPDE auf `tinh-notebook` umstellen: in den `notebook.qmd` die Klassen
+- [X]  numPDE auf `tinh-notebook` umstellen: in den `notebook.qmd` die Klassen
   umbenennen (`.tinh-solution`, `.tinh-scaffold`), Code in `.tinh-scaffold` lauffähig (Lücken als Kommentar). Im
   Lernpfad-Skript statt `filter_notebook` eine temporäre `.qmd` mit Kopf (`title`, `subtitle`, `engine: markdown`,
   `tinh-target`) schreiben und `quarto render … --to tinh-notebook-ipynb` aufrufen, Ausgabeort bei `output-dir`
   beachten; Zips, Hashes und Slugs bleiben im Skript. CLAUDE.md anpassen, `filter-notebook.jl` löschen.
 - [ ]  Informatik auf `tinh-notebook` umstellen, wie numPDE.
 - [ ]  Mathe B auf `tinh-notebook` umstellen, wie numPDE.
-- [ ]  numPDE: `\newcommand`-Blöcke in den beiden Aufgaben entfernen (Makros jetzt in `tinh-macros`).
+- [X]  numPDE: `\newcommand`-Blöcke in den beiden Aufgaben entfernen (Makros jetzt in `tinh-macros`).

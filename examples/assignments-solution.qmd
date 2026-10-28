@@ -1,0 +1,11 @@
+---
+title: "Übung 1: Lage- und Streuungsmaße"
+subtitle: Beispiel für die Extension tinh-assignments (Lösung, nur Titel der Aufgaben)
+tinh-target: solution
+tinh-solution-task: title
+format:
+  tinh-assignments-html: default
+  tinh-assignments-typst: default
+---
+
+{{< include _assignments.qmd >}}

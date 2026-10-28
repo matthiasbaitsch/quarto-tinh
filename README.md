@@ -16,6 +16,7 @@ verwenden die Brand der Hochschule Bochum ([hsbo-brand](https://github.com/matth
 | Folien (`slides.qmd`)                 | [revealjs](https://matthiasbaitsch.github.io/quarto-tinh/examples/slides.html) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/slides.pdf) |
 | Skript (`notes.qmd`)                  | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/notes.html) | [LaTeX](https://matthiasbaitsch.github.io/quarto-tinh/examples/notes.pdf) |
 | Aufgaben (`assignments.qmd`)          | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/assignments.html) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/assignments.pdf) |
+| Aufgaben, Lösung mit Titeln (`assignments-solution.qmd`) | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/assignments-solution.html) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/assignments-solution.pdf) |
 | Aufgaben mit Literatur (`assignments-bib.qmd`) | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/assignments-bib.html) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/assignments-bib.pdf) |
 | Makros (`macros.qmd`), Folien         | [revealjs](https://matthiasbaitsch.github.io/quarto-tinh/examples/macros-slides.html) | [Typst](https://matthiasbaitsch.github.io/quarto-tinh/examples/macros-slides.pdf) |
 | Makros, Skript                        | [HTML](https://matthiasbaitsch.github.io/quarto-tinh/examples/macros-notes.html) | [LaTeX](https://matthiasbaitsch.github.io/quarto-tinh/examples/macros-notes.pdf) |
@@ -90,6 +91,10 @@ Markiert heißt: in HTML und Typst ein Block mit farbigem Rand und der Beschrift
 die Blöcke dazwischen wegfallen), gibt es nur eine Markierung. Folgt einem `.tinh-solution`-Block mit Code kein `.tinh-scaffold`-Block,
 steht im Gerüst eine Code-Zelle `# ...`. Die Blöcke dürfen in anderen stehen, z.B. in `::: {#exr-…}`. Quartos eigene
 Umgebung `.solution` („Lösung.“) bleibt davon unberührt.
+
+Mit `tinh-solution-task: title` (Voreinstellung `full`) enthält die Lösung von jeder Aufgabe (`::: {#exr-…}`) nur den
+Titel und die Lösungsblöcke, Aufgaben ohne Lösung bekommen „Keine Lösung.“, z.B.
+`quarto render aufgaben.qmd -M tinh-target:solution -M tinh-solution-task:title`.
 
 ## Notebooks
 

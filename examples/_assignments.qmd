@@ -1,0 +1,58 @@
+# Lagemaße
+
+::: {#exr-mittelwert}
+## Mittelwert
+
+An zwei Wetterstationen wurde 2024 der Jahresniederschlag in mm gemessen.
+
+| Station | Jahr | Niederschlag |
+|---------|------|-------------:|
+| Bochum  | 2024 |       1012.3 |
+| Essen   | 2024 |        934.8 |
+
+Bestimmen Sie den Mittelwert der beiden Messwerte.
+
+::: {.tinh-scaffold}
+Hinweis: Der Mittelwert ist $\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$.
+:::
+
+::: {.tinh-solution}
+$\bar{x} = \frac{1012.3 + 934.8}{2} = \SI{973.55}{\milli\metre}$
+:::
+:::
+
+::: {#exr-pinguine}
+## Pinguine
+
+Die Tabelle zeigt die ersten zehn Datensätze aus `penguins`.
+
+```{r}
+#| echo: false
+library(gt)
+
+penguins |> head(10) |> gt()
+```
+
+a) Bestimmen Sie Mittelwert und Median der Schnabellänge `bill_len`.
+b) Wie gehen Sie mit dem fehlenden Wert (`NA`) um?
+:::
+
+# Streuung
+
+::: {#exr-aussagen}
+## Aussagen prüfen
+
+Welche Aussagen sind richtig? Begründen Sie Ihre Antwort.
+
+a) Der Median ist robust gegen Ausreißer.
+b) Die Varianz kann negativ sein.
+:::
+
+::: {#exr-varianz}
+## Varianz
+
+Die Varianz ist $s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2$.
+
+a) Berechnen Sie die Varianz der Niederschläge aus @exr-mittelwert.
+b) Warum steht im Nenner $n - 1$ und nicht $n$?
+:::
