@@ -119,6 +119,8 @@ Die Variable `tinh-target` wählt die Fassung:
 
 *Markiert* heißt: farbiger Balken mit „Lösung“ bzw. „Gerüst“. Direkt aufeinanderfolgende Blöcke bekommen nur eine Markierung.
 
+Ein Block `::: {.tinh-work}` steht nur in der Arbeitsfassung (ohne `tinh-target`), unmarkiert, z.B. Code, der Pakete und Daten lädt, damit sich die Lösungen testen lassen. Die Engine führt den Code darin aber in jeder Fassung aus, der Filter läuft erst danach.
+
 Mit `tinh-solution-task: title` zeigt die Lösung von jeder Aufgabe nur den Titel, Aufgaben ohne Lösung bekommen „Keine Lösung.“
 
 ```bash
