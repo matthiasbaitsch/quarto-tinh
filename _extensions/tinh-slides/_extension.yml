@@ -59,6 +59,11 @@ contributes:
         - down30
         - down40
         - down50
+        - up10
+        - up20
+        - up30
+        - up40
+        - up50
       include-in-header:
         - tinh-slides.typ
       theme-typst: tinh-clean-theme

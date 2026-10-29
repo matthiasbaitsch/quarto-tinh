@@ -76,13 +76,18 @@
 #let ja(body) = text(fill: rgb("#2e7d32"))[✓]
 #let nein(body) = text(fill: red)[✗]
 
-// Vertikaler Abstand wie .downN bei revealjs, z. B. []{.down20}
+// Vertikaler Abstand wie .downN und .upN bei revealjs, z. B. []{.down20}
 #let down(n) = body => { v(n * 1pt); body }
 #let down10 = down(10)
 #let down20 = down(20)
 #let down30 = down(30)
 #let down40 = down(40)
 #let down50 = down(50)
+#let up10 = down(-10)
+#let up20 = down(-20)
+#let up30 = down(-30)
+#let up40 = down(-40)
+#let up50 = down(-50)
 
 // Tabellen ohne Typsts Standardraster, Text kleiner
 #set table(stroke: none)
