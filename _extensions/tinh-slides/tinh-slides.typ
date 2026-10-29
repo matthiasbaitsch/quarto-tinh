@@ -73,6 +73,7 @@
 
 // Befehle (Klassen per environment.lua der Bridge und commands: in _extension.yml, z. B. [Begriff]{.neuerbegriff})
 #let neuerbegriff(body) = text(fill: rgb("#9a2515"), weight: "regular", body)
+#let eng(body) = emph(body)
 #let ja(body) = text(fill: rgb("#2e7d32"))[✓]
 #let nein(body) = text(fill: red)[✗]
 
