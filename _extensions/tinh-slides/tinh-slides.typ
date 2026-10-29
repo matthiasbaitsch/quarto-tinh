@@ -45,6 +45,24 @@
       },
     )
   }
+  // Beispiel (::: {#exm-...}) mit Balken links wie bei tinh-notes, ohne Nummer
+  // Titel "Beispiel: Name" in einer eigenen Zeile, Inhalt aufrecht
+  show figure.where(kind: "example"): it => {
+    let frame = it.body.children.find(c => c.func() == metadata).value
+    block(
+      width: 100%,
+      stroke: (left: 5pt + rgb("#e9967a")), // darksalmon
+      inset: (left: 0.6em, y: 0.2em),
+      {
+        show text.where(weight: "bold"): set text(weight: "regular")
+        set strong(delta: 100)
+        set align(left)
+        strong[#it.supplement#if frame.title != "" [: #frame.title]]
+        parbreak()
+        frame.body
+      },
+    )
+  }
   clean-theme(
     config-common(new-section-slide-fn: tinh-section-slide),
     hide-slide-numbers: true,

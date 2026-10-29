@@ -82,6 +82,18 @@ $$
 $$
 :::
 
+## Beispiel
+
+::: {#exm-schnabellaenge}
+## Schnabellänge
+
+Für die Schnabellängen $39.1$, $39.5$ und $40.3$ mm ist
+
+$$
+\bar{x} = \frac{39.1 + 39.5 + 40.3}{3} = 39.63 \text{ mm}
+$$
+:::
+
 # Programm
 
 ## Mittelwert in C\#
