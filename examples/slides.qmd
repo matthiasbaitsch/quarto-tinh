@@ -7,7 +7,6 @@ format:
   tinh-slides-typst: default
 ---
 
-
 ```{r}
 #| include: false
 library(gt)
@@ -37,20 +36,12 @@ if (knitr::is_html_output()) {
 }
 ```
 
-## Breite Tabelle mit tinytable
+## Niederschläge
 
 Monatliche Niederschläge in mm
 
 ```{r}
 niederschlag |> tt()
-```
-
-## Breite Tabelle mit gt
-
-Monatliche Niederschläge in mm
-
-```{r}
-niederschlag |> gt()
 ```
 
 ## Merkmale
@@ -62,8 +53,6 @@ Jede Spalte ist ein [Merkmal]{.neuerbegriff}, fehlende Werte sind als `NA`
   - Schnabellänge, Gewicht
 - Qualitative Merkmale
   - Art, Insel
-
-Für den Mittelwert kommen nur quantitative Merkmale infrage.
 
 ### Vorgehen
 
@@ -105,16 +94,8 @@ Console.WriteLine(x.Average());
 
 ### Ausgabe
 
-```cs
-Console.WriteLine(x.Length);
-```
-
 ```output
-3
-```
-
-```
-Ausgabe ohne Syntaxhervorhebung
+39.63333333333333
 ```
 
 ## Eingabedatei
@@ -122,6 +103,10 @@ Ausgabe ohne Syntaxhervorhebung
 ```raw
 art;insel;schnabel
 Adelie;Torgersen;39.1
+```
+
+```
+Code ohne Syntaxhervorhebung
 ```
 
 []{.down20}
@@ -168,9 +153,6 @@ Er ist robust gegen Ausreißer.
 
 ## Varianz
 
-Die Varianz misst, wie stark die Werte $x_1, \dots, x_n$ um den Mittelwert
-$\bar{x}$ streuen. Sie lässt sich auf zwei Arten berechnen:
-
 $$
 s^2 = \frac{1}{n-1} \sum_{i=1}^{n} \left( x_i - \bar{x} \right)^2
     = \frac{1}{n-1} \left( \sum_{i=1}^{n} x_i^2 - n \, \bar{x}^2 \right)
@@ -185,11 +167,6 @@ Die Standardabweichung $s = \sqrt{s^2}$ hat dieselbe Einheit wie die Daten.
 ::: {.objective}
 Sie können das maximale Moment eines Einfeldträgers berechnen.
 :::
-
-| Größe | Wert      |
-|-------|-----------|
-| Länge | 5.0 m     |
-| Last  | 10.0 kN/m |
 
 $$
 M_{max} = \frac{q \ell^2}{8}
