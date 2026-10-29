@@ -23,21 +23,28 @@
 // theorions show-definition (macht aus dem figure seinen Inhalt) erst danach
 // im Header einbindet; das Theme wird später angewendet, die Regel greift so zuerst
 #let tinh-clean-theme(..args) = {
-  // Definition (::: {#def-...}) im Kasten wie bei tinh-notes
+  // Definition (::: {#def-...}) im Kasten wie bei tinh-notes, ohne Nummer
+  // Titel und Inhalt aus theorions Metadaten im figure, Aufbau wie Quartos simple-theorem-render
   // Titel nur regular statt fett: "Definition" setzt Quarto als text(weight: "bold"),
-  // Nummer und Name per strong (light + 100 = regular)
-  show figure.where(kind: "definition"): it => block(
-    width: 100%,
-    fill: rgb("#f5f5f5"),
-    stroke: 1.5pt,
-    radius: 5pt,
-    inset: 0.6em,
-    {
-      show text.where(weight: "bold"): set text(weight: "regular")
-      set strong(delta: 100)
-      align(left, it)
-    },
-  )
+  // Name per strong (light + 100 = regular)
+  show figure.where(kind: "definition"): it => {
+    let frame = it.body.children.find(c => c.func() == metadata).value
+    block(
+      width: 100%,
+      fill: rgb("#f5f5f5"),
+      stroke: 1.5pt,
+      radius: 5pt,
+      inset: 0.6em,
+      {
+        show text.where(weight: "bold"): set text(weight: "regular")
+        set strong(delta: 100)
+        set align(left)
+        strong[#it.supplement#if frame.title != "" [ (#frame.title)].]
+        h(0.5em)
+        emph(frame.body)
+      },
+    )
+  }
   clean-theme(
     config-common(new-section-slide-fn: tinh-section-slide),
     hide-slide-numbers: true,
