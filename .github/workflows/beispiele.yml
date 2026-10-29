@@ -35,6 +35,7 @@ jobs:
             any::reactable
             any::rmarkdown
             any::tidyverse
+            any::tinytable
 
       # Für die Notebook-Beispiele (engine: julia), QuartoNotebookRunner installiert Quarto selbst
       - uses: julia-actions/setup-julia@v2
