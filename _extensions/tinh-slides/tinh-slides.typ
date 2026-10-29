@@ -79,11 +79,13 @@
 
 // Vertikaler Abstand wie .downN und .upN bei revealjs, z. B. []{.down20}
 #let down(n) = body => { v(n * 1pt); body }
+#let down5 = down(5)
 #let down10 = down(10)
 #let down20 = down(20)
 #let down30 = down(30)
 #let down40 = down(40)
 #let down50 = down(50)
+#let up5 = down(-5)
 #let up10 = down(-10)
 #let up20 = down(-20)
 #let up30 = down(-30)

@@ -64,7 +64,7 @@ Die Beispiele in `examples/` werden bei jedem Push auf `main` gerendert und auf 
 | `[]{.ja}`, `[]{.nein}`       | grüner Haken, rotes Kreuz             |
 | `[]{.down20}` usw.           | vertikaler Abstand, nur auf Folien    |
 
-Gilt in allen Formaten außer `tinh-assignments-typst`. Abstände: Typst `.down10` bis `.down50`, revealjs auch `.upN` und weitere Werte. Definitionen (`#def-`) und Beispiele (`#exm-`) bekommen im Skript einen Kasten.
+Gilt in allen Formaten außer `tinh-assignments-typst`. Abstände: Typst `.down5`, `.down10` bis `.down50` und ebenso `.upN`, revealjs weitere Werte. Definitionen (`#def-`) und Beispiele (`#exm-`) bekommen im Skript einen Kasten.
 
 ### Formeln und Einheiten
 
