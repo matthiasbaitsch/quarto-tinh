@@ -39,7 +39,7 @@
         show text.where(weight: "bold"): set text(weight: "regular")
         set strong(delta: 100)
         set align(left)
-        strong[#it.supplement#if frame.title != "" [ (#frame.title)].]
+        strong[#it.supplement#if frame.title != "" [ (#frame.title)]]
         h(0.5em)
         emph(frame.body)
       },
