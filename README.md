@@ -61,6 +61,7 @@ Die Beispiele in `examples/` werden bei jedem Push auf `main` gerendert und auf 
 |------------------------------|---------------------------------------|
 | `[Begriff]{.neuerbegriff}`   | neuer Begriff, dunkelrot              |
 | `[range]{.eng}`              | englischer Begriff, kursiv            |
+| `[]{.inhalt}`                | Abschnitte als Aufzählung, nur Typst  |
 | `[]{.ja}`, `[]{.nein}`       | grüner Haken, rotes Kreuz             |
 | `[]{.down20}` usw.           | vertikaler Abstand, nur auf Folien    |
 
