@@ -28,6 +28,7 @@ Eigene Optionen in `_quarto.yml` überschreiben die der Extension.
 |               | `tinh-slides-typst`      | PDF (Typst, touying)                            |
 | Skript        | `tinh-notes-html`        | HTML mit Inhaltsverzeichnis                     |
 |               | `tinh-notes-pdf`         | PDF (LaTeX) mit Index                           |
+|               | `tinh-notes-typst`       | PDF (Typst, orange-book), nur für Books         |
 | Aufgabenblatt | `tinh-assignments-html`  | HTML                                            |
 |               | `tinh-assignments-typst` | PDF (Typst)                                     |
 | Notebook      | `tinh-notebook-ipynb`    | Jupyter-Notebook                                |

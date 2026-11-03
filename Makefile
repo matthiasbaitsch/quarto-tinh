@@ -12,6 +12,7 @@ clean:
 update-extensions:
 	quarto add kazuyanagimoto/quarto-touying-typst --embed tinh-slides --no-prompt
 	quarto add quarto-ext/latex-environment --embed tinh-notes --no-prompt
+	quarto add quarto-ext/orange-book --embed tinh-notes --no-prompt
 	@echo
 	@echo "Danach:"
 	@echo "  1. git diff _extensions/*/_extensions prüfen"
