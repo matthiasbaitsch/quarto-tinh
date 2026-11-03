@@ -1,6 +1,13 @@
 // Typst-Teil von tinh-notes (include-before-body: steht nach Quartos Template, damit die Regeln nach denen von
 // orange-book und theorion kommen und zuerst greifen)
 
+// Absätze ohne Einzug, mit Abstand von etwa einer halben Zeile (wie KOMA parskip=half), statt Einzug von orange-book
+#set par(first-line-indent: 0em, spacing: 1.2em)
+
+// Nummern nur bis Ebene 3 (number-depth aus _extension.yml kommt bei Typst nicht an), Ebene 4 wie \paragraph
+#show heading.where(level: 4): set heading(numbering: none)
+#show heading.where(level: 5): set heading(numbering: none)
+
 // Befehle (Klassen per commands.lua, z. B. [Begriff]{.neuerbegriff}), Farben wie tinh-notes.css
 #let neuerbegriff(body) = text(fill: rgb("#b13434"), weight: "semibold", body)
 #let eng(body) = emph(body)

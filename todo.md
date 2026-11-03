@@ -20,6 +20,11 @@
   Lernpfad-Skript statt `filter_notebook` eine temporäre `.qmd` mit Kopf (`title`, `subtitle`, `engine: markdown`,
   `tinh-target`) schreiben und `quarto render … --to tinh-notebook-ipynb` aufrufen, Ausgabeort bei `output-dir`
   beachten; Zips, Hashes und Slugs bleiben im Skript. CLAUDE.md anpassen, `filter-notebook.jl` löschen.
+- [ ]  `tinh-notes-typst`: eigenes schlichtes Book-Layout statt orange-book (zu verspielt). Datei `tinh-book.typ`
+  mit `book`, `part` und `appendices` (Schnittstelle wie orange-book), eigenes `typst-show.typ` und `page.typ`;
+  `numbering.typ` und `orange-book.lua` weiterverwenden. Aussehen etwa wie KOMA scrreprt: schlichte Titelseite mit
+  Logo, Teilseite nur mit „Teil I“ und Titel, Kapitel auf neuer Seite mit Nummer und Titel ohne Rahmen und
+  Farbflächen, Kopfzeile mit Kapitel und Seitenzahl. Danach das eingebettete orange-book-Paket entfernen.
 - [ ]  Informatik auf `tinh-notebook` umstellen, wie numPDE.
 - [ ]  Mathe B auf `tinh-notebook` umstellen, wie numPDE.
 - [X]  numPDE: `\newcommand`-Blöcke in den beiden Aufgaben entfernen (Makros jetzt in `tinh-macros`).
