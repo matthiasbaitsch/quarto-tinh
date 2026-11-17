@@ -43,6 +43,8 @@ library(gt)
 penguins |> head(10) |> gt()
 ```
 
+### Auswertung
+
 a) Bestimmen Sie Mittelwert und Median der Schnabellänge `bill_len`.
 b) Wie gehen Sie mit dem fehlenden Wert (`NA`) um?
 :::

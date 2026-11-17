@@ -1,9 +1,11 @@
 /* Stil für tinh-assignments */
 
-/* Abschnitte in Aufgaben (###) nicht größer als der Titel der Aufgabe */
+/* Abschnitte in Aufgaben (###) nicht größer als der Titel der Aufgabe, stahlblau damit sie nicht wichtiger
+   wirken als die Aufgabe */
 h3 {
   font-size: 1rem;
   font-weight: bold;
+  color: steelblue;
   margin-top: 1.5rem;
 }
 
