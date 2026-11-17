@@ -19,7 +19,7 @@
   show heading: set block(below: 1em)
   // Abschnitte in Aufgaben (###) nicht größer als der Titel der Aufgabe, stahlblau damit sie nicht wichtiger
   // wirken als die Aufgabe. Quarto verschiebt die Ebenen in Typst, ### kommt daher als Ebene 2 an
-  show heading.where(level: 2).or(heading.where(level: 3)): set text(size: fontsize, fill: rgb("#4682b4"))
+  show heading.where(level: 2).or(heading.where(level: 3)): set text(size: fontsize, weight: "regular", fill: rgb("#4682b4"))
 
   if title != none {
     block(inset: (y: 0em), below: 3em)[
