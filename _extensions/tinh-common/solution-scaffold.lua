@@ -21,7 +21,14 @@
 -- Läuft vor Quartos Filtern (pre-ast).
 local TARGETS = { solution = true, scaffold = true, blank = true }
 local TASKS = { full = true, title = true }
-local KINDS = { ["tinh-solution"] = "solution", ["tinh-scaffold"] = "scaffold", ["tinh-work"] = "work" }
+-- .lm-solution und .lm-scaffold sind die Markierungen von loi-moi (quarto-loi-moi), gleich behandelt
+local KINDS = {
+  ["tinh-solution"] = "solution",
+  ["tinh-scaffold"] = "scaffold",
+  ["tinh-work"] = "work",
+  ["lm-solution"] = "solution",
+  ["lm-scaffold"] = "scaffold",
+}
 local LABELS = {
   de = { solution = "Lösung", scaffold = "Gerüst", none = "Keine Lösung." },
   en = { solution = "Solution", scaffold = "Scaffold", none = "No solution." },
