@@ -28,3 +28,9 @@
 - [ ]  Informatik auf `tinh-notebook` umstellen, wie numPDE.
 - [ ]  Mathe B auf `tinh-notebook` umstellen, wie numPDE.
 - [X]  numPDE: `\newcommand`-Blöcke in den beiden Aufgaben entfernen (Makros jetzt in `tinh-macros`).
+- [ ]  `tinh-notes-pdf`: `\fvset{fontsize=\small}` in `tinh-notes.tex` scheitert mit „Undefined control sequence“,
+  wenn ein Dokument keinen sichtbaren Code hat, weil Quarto `fancyvrb` dann nicht lädt (z. B. Skript
+  `m-dichtekurven-und-normalverteilung` in `bcd-bausteine-statistik`, dort ist der Workflow deshalb abgeschaltet).
+  Lösung etwa `\AtBeginDocument{\ifdefined\fvset\fvset{fontsize=\small}\fi}`. Danach Version erhöhen, in
+  `bcd-bausteine-statistik` aktualisieren und den Workflow wieder einschalten (`gh workflow enable "Render and
+  publish"`).
